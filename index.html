@@ -3,182 +3,121 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Netflix Series - Proyectos</title>
+    <title>Netflix Proyectos - 3D Carousel</title>
+    <link rel="stylesheet" href="styles.css">
     <style>
-        /* Estilo base tipo Netflix */
-        body {
-            font-family: 'Helvetica Neue', Arial, sans-serif;
-            background-color: #141414;
-            color: white;
-            margin: 0;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-        }
-
-        nav {
-            width: 100%;
-            background: #000;
-            padding: 20px;
-            text-align: center;
-            border-bottom: 2px solid #e50914;
-        }
-
-        nav a {
-            color: white;
-            text-decoration: none;
-            margin: 0 15px;
-            font-weight: bold;
-            text-transform: uppercase;
-        }
-
-        /* Contenedor principal del Carrusel */
-        .main-container {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 50px;
-            height: 80vh;
-            max-width: 1200px;
-        }
-
-        .carousel-container {
-            position: relative;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-        }
-
-        .carousel-track {
-            display: flex;
-            flex-direction: column;
-            gap: 15px;
-            overflow: hidden;
-            height: 450px; /* Ajusta según tamaño de cards */
-        }
-
-        .card {
-            width: 200px;
-            height: 120px;
-            flex-shrink: 0;
-            border-radius: 8px;
-            overflow: hidden;
-            border: 2px solid transparent;
-            transition: 0.3s;
-            cursor: pointer;
-        }
-
-        .card.active { border-color: #e50914; transform: scale(1.1); }
-        .card img { width: 100%; height: 100%; object-fit: cover; }
-
-        .nav-arrow {
-            background: none;
-            border: none;
-            cursor: pointer;
-            padding: 10px;
-        }
-
-        .nav-arrow img { width: 30px; filter: invert(1); }
-
-        /* Información de la serie seleccionada */
-        .controls-section { text-align: left; max-width: 400px; }
-        .member-name { font-size: 3rem; margin: 0; color: #e50914; }
-        .member-role { font-size: 1.2rem; color: #aaa; margin-bottom: 20px; }
-        
+        /* Ajuste rápido para el botón de ver detalle que no estaba en tu CSS */
         .btn-detalle {
-            display: inline-block;
-            background-color: #e50914;
+            background-color: rgb(8, 42, 123);
             color: white;
-            padding: 10px 20px;
+            padding: 12px 25px;
             text-decoration: none;
             border-radius: 4px;
             font-weight: bold;
+            margin-top: 20px;
+            display: inline-block;
+            transition: 0.3s;
         }
-
-        /* Botón flotante */
-        #super-btn {
-            position: fixed;
-            bottom: 20px;
-            right: 20px;
-            width: 50px;
-            height: 50px;
-            border-radius: 50%;
-            overflow: hidden;
-        }
-        #super-btn img { width: 100%; }
+        .btn-detalle:hover { transform: scale(1.05); background: #e50914; }
     </style>
 </head>
-
 <body>
-    <nav>
-        <a href="index.html">Inicio</a>
-        <a href="proyectos.html">Ver todas las series</a>
-    </nav>
-
     <div class="main-container">
         <div class="carousel-section">
             <div class="carousel-container">
-                <button class="nav-arrow up" onclick="moveUp()">
-                    <img src="https://ik.imagekit.io/gopichakradhar/icons/top.png?updatedAt=1754290522765" alt="Up">
-                </button>
                 <div class="carousel-track" id="track">
-                    <div class="card active" data-index="0" onclick="updateInfo(0)">
-                        <img src="https://ik.imagekit.io/gopichakradhar/luffy/o1.jpeg?updatedAt=1754289569411" alt="Serie 1">
+                    <div class="card center" data-index="0">
+                        <img src="https://ik.imagekit.io/gopichakradhar/luffy/o1.jpeg?updatedAt=1754289569411" alt="One Piece">
                     </div>
-                    <div class="card" data-index="1" onclick="updateInfo(1)">
-                        <img src="https://ik.imagekit.io/gopichakradhar/luffy/o2.jpeg?updatedAt=1754289569307" alt="Serie 2">
+                    <div class="card down-1" data-index="1">
+                        <img src="https://ik.imagekit.io/gopichakradhar/luffy/o2.jpeg?updatedAt=1754289569307" alt="Stranger Things">
                     </div>
-                    <div class="card" data-index="2" onclick="updateInfo(2)">
-                        <img src="https://ik.imagekit.io/gopichakradhar/luffy/o4.jpeg?updatedAt=1754289569398" alt="Serie 3">
+                    <div class="card down-2" data-index="2">
+                        <img src="https://ik.imagekit.io/gopichakradhar/luffy/o4.jpeg?updatedAt=1754289569398" alt="The Crown">
+                    </div>
+                    <div class="card hidden" data-index="3">
+                        <img src="https://ik.imagekit.io/gopichakradhar/luffy/o3.jpeg?updatedAt=1754289569422" alt="The Witcher">
                     </div>
                 </div>
-                <button class="nav-arrow down" onclick="moveDown()">
-                    <img src="https://ik.imagekit.io/gopichakradhar/icons/down.png?updatedAt=1754290523249" alt="Down">
-                </button>
             </div>
         </div>
 
         <div class="controls-section">
+            <div class="nav-controls">
+                <button class="nav-arrow up" id="prevBtn">
+                    <img src="https://ik.imagekit.io/gopichakradhar/icons/top.png?updatedAt=1754290522765" alt="Up">
+                </button>
+                <button class="nav-arrow down" id="nextBtn">
+                    <img src="https://ik.imagekit.io/gopichakradhar/icons/down.png?updatedAt=1754290523249" alt="Down">
+                </button>
+            </div>
+
             <div class="member-info">
                 <h2 class="member-name" id="series-title">One Piece</h2>
-                <p class="member-role" id="series-desc">Proyecto Destacado: Adaptación Live Action.</p>
+                <p class="member-role" id="series-desc">Adaptación Live Action</p>
                 <a href="proyecto1.html" class="btn-detalle" id="series-link">Ver Detalles</a>
+            </div>
+
+            <div class="dots" id="dotsContainer">
+                <div class="dot active"></div>
+                <div class="dot"></div>
+                <div class="dot"></div>
+                <div class="dot"></div>
             </div>
         </div>
     </div>
 
-    <script>
-        const data = [
-            { title: "One Piece", desc: "Proyecto Destacado: Adaptación Live Action.", link: "proyecto1.html" },
-            { title: "Stranger Things", desc: "Proyecto Destacado: Efectos Visuales.", link: "proyecto2.html" },
-            { title: "The Crown", desc: "Producción histórica premiada.", link: "#" }
-        ];
-
-        function updateInfo(index) {
-            document.getElementById('series-title').innerText = data[index].title;
-            document.getElementById('series-desc').innerText = data[index].desc;
-            const linkBtn = document.getElementById('series-link');
-            
-            if(data[index].link !== "#") {
-                linkBtn.style.display = "inline-block";
-                linkBtn.href = data[index].link;
-            } else {
-                linkBtn.style.display = "none";
-            }
-
-            // Actualizar clase activa
-            const cards = document.querySelectorAll('.card');
-            cards.forEach(c => c.classList.remove('active'));
-            cards[index].classList.add('active');
-        }
-
-        // Funciones básicas de movimiento
-        function moveUp() { /* Lógica de scroll opcional */ }
-        function moveDown() { /* Lógica de scroll opcional */ }
-    </script>
-
     <a href="https://gopichakradhar.me" target="_blank" id="super-btn">
         <img src="https://ik.imagekit.io/gopichakradhar/assets/super.jpg?updatedAt=1748004690247" alt="Super" />
     </a>
+
+    <script>
+        const seriesData = [
+            { title: "One Piece", role: "Adaptación Live Action", link: "proyecto1.html" },
+            { title: "Stranger Things", role: "Misterio Sobrenatural", link: "proyecto2.html" },
+            { title: "The Crown", role: "Drama Histórico", link: "proyectos.html" },
+            { title: "The Witcher", role: "Fantasía Épica", link: "proyectos.html" }
+        ];
+
+        let currentIndex = 0;
+        const cards = document.querySelectorAll('.card');
+        const dots = document.querySelectorAll('.dot');
+
+        function updateCarousel() {
+            cards.forEach((card, i) => {
+                card.className = 'card'; // Limpiar clases
+                if (i === currentIndex) {
+                    card.classList.add('center');
+                } else if (i === (currentIndex - 1 + cards.length) % cards.length) {
+                    card.classList.add('up-1');
+                } else if (i === (currentIndex - 2 + cards.length) % cards.length) {
+                    card.classList.add('up-2');
+                } else if (i === (currentIndex + 1) % cards.length) {
+                    card.classList.add('down-1');
+                } else if (i === (currentIndex + 2) % cards.length) {
+                    card.classList.add('down-2');
+                } else {
+                    card.classList.add('hidden');
+                }
+            });
+
+            // Actualizar textos y dots
+            document.getElementById('series-title').innerText = seriesData[currentIndex].title;
+            document.getElementById('series-desc').innerText = seriesData[currentIndex].role;
+            document.getElementById('series-link').href = seriesData[currentIndex].link;
+            
+            dots.forEach((dot, i) => dot.classList.toggle('active', i === currentIndex));
+        }
+
+        document.getElementById('nextBtn').addEventListener('click', () => {
+            currentIndex = (currentIndex + 1) % cards.length;
+            updateCarousel();
+        });
+
+        document.getElementById('prevBtn').addEventListener('click', () => {
+            currentIndex = (currentIndex - 1 + cards.length) % cards.length;
+            updateCarousel();
+        });
+    </script>
 </body>
 </html>
