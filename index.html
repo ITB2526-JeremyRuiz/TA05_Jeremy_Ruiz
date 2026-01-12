@@ -2,36 +2,183 @@
 <html lang="es">
 <head>
     <meta charset="UTF-8">
-    <title>Mi Portafolio - Inicio</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Netflix Series - Proyectos</title>
     <style>
-        body { font-family: sans-serif; line-height: 1.6; margin: 0; padding: 20px; background: #f4f4f4; }
-        nav { background: #333; padding: 1rem; margin-bottom: 20px; }
-        nav a { color: white; margin-right: 15px; text-decoration: none; }
-        .container { max-width: 800px; margin: auto; background: white; padding: 30px; border-radius: 8px; }
-        .proyecto-card { border: 1px solid #ddd; padding: 15px; margin: 15px 0; border-left: 5px solid #007bff; }
-        h1 { color: #222; }
+        /* Estilo base tipo Netflix */
+        body {
+            font-family: 'Helvetica Neue', Arial, sans-serif;
+            background-color: #141414;
+            color: white;
+            margin: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        nav {
+            width: 100%;
+            background: #000;
+            padding: 20px;
+            text-align: center;
+            border-bottom: 2px solid #e50914;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            margin: 0 15px;
+            font-weight: bold;
+            text-transform: uppercase;
+        }
+
+        /* Contenedor principal del Carrusel */
+        .main-container {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 50px;
+            height: 80vh;
+            max-width: 1200px;
+        }
+
+        .carousel-container {
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .carousel-track {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            overflow: hidden;
+            height: 450px; /* Ajusta según tamaño de cards */
+        }
+
+        .card {
+            width: 200px;
+            height: 120px;
+            flex-shrink: 0;
+            border-radius: 8px;
+            overflow: hidden;
+            border: 2px solid transparent;
+            transition: 0.3s;
+            cursor: pointer;
+        }
+
+        .card.active { border-color: #e50914; transform: scale(1.1); }
+        .card img { width: 100%; height: 100%; object-fit: cover; }
+
+        .nav-arrow {
+            background: none;
+            border: none;
+            cursor: pointer;
+            padding: 10px;
+        }
+
+        .nav-arrow img { width: 30px; filter: invert(1); }
+
+        /* Información de la serie seleccionada */
+        .controls-section { text-align: left; max-width: 400px; }
+        .member-name { font-size: 3rem; margin: 0; color: #e50914; }
+        .member-role { font-size: 1.2rem; color: #aaa; margin-bottom: 20px; }
+        
+        .btn-detalle {
+            display: inline-block;
+            background-color: #e50914;
+            color: white;
+            padding: 10px 20px;
+            text-decoration: none;
+            border-radius: 4px;
+            font-weight: bold;
+        }
+
+        /* Botón flotante */
+        #super-btn {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            overflow: hidden;
+        }
+        #super-btn img { width: 100%; }
     </style>
 </head>
+
 <body>
     <nav>
         <a href="index.html">Inicio</a>
-        <a href="proyectos.html">Todos los Proyectos</a>
+        <a href="proyectos.html">Ver todas las series</a>
     </nav>
-    <div class="container">
-        <h1>Bienvenido a mi Portafolio</h1>
-        <p>Esta es la página principal donde muestro mi experiencia general y mis trabajos más importantes.</p>
-        
-        <h2>Proyectos Destacados</h2>
-        <div class="proyecto-card">
-            <h3>Sistema de Gestión E-commerce</h3>
-            <p>Una plataforma completa para ventas online con panel de administración.</p>
-            <a href="proyecto1.html">Ver detalle del proyecto →</a>
+
+    <div class="main-container">
+        <div class="carousel-section">
+            <div class="carousel-container">
+                <button class="nav-arrow up" onclick="moveUp()">
+                    <img src="https://ik.imagekit.io/gopichakradhar/icons/top.png?updatedAt=1754290522765" alt="Up">
+                </button>
+                <div class="carousel-track" id="track">
+                    <div class="card active" data-index="0" onclick="updateInfo(0)">
+                        <img src="https://ik.imagekit.io/gopichakradhar/luffy/o1.jpeg?updatedAt=1754289569411" alt="Serie 1">
+                    </div>
+                    <div class="card" data-index="1" onclick="updateInfo(1)">
+                        <img src="https://ik.imagekit.io/gopichakradhar/luffy/o2.jpeg?updatedAt=1754289569307" alt="Serie 2">
+                    </div>
+                    <div class="card" data-index="2" onclick="updateInfo(2)">
+                        <img src="https://ik.imagekit.io/gopichakradhar/luffy/o4.jpeg?updatedAt=1754289569398" alt="Serie 3">
+                    </div>
+                </div>
+                <button class="nav-arrow down" onclick="moveDown()">
+                    <img src="https://ik.imagekit.io/gopichakradhar/icons/down.png?updatedAt=1754290523249" alt="Down">
+                </button>
+            </div>
         </div>
-        <div class="proyecto-card">
-            <h3>App de Clima en Tiempo Real</h3>
-            <p>Aplicación que utiliza APIs externas para predecir el tiempo con precisión.</p>
-            <a href="proyecto2.html">Ver detalle del proyecto →</a>
+
+        <div class="controls-section">
+            <div class="member-info">
+                <h2 class="member-name" id="series-title">One Piece</h2>
+                <p class="member-role" id="series-desc">Proyecto Destacado: Adaptación Live Action.</p>
+                <a href="proyecto1.html" class="btn-detalle" id="series-link">Ver Detalles</a>
+            </div>
         </div>
     </div>
+
+    <script>
+        const data = [
+            { title: "One Piece", desc: "Proyecto Destacado: Adaptación Live Action.", link: "proyecto1.html" },
+            { title: "Stranger Things", desc: "Proyecto Destacado: Efectos Visuales.", link: "proyecto2.html" },
+            { title: "The Crown", desc: "Producción histórica premiada.", link: "#" }
+        ];
+
+        function updateInfo(index) {
+            document.getElementById('series-title').innerText = data[index].title;
+            document.getElementById('series-desc').innerText = data[index].desc;
+            const linkBtn = document.getElementById('series-link');
+            
+            if(data[index].link !== "#") {
+                linkBtn.style.display = "inline-block";
+                linkBtn.href = data[index].link;
+            } else {
+                linkBtn.style.display = "none";
+            }
+
+            // Actualizar clase activa
+            const cards = document.querySelectorAll('.card');
+            cards.forEach(c => c.classList.remove('active'));
+            cards[index].classList.add('active');
+        }
+
+        // Funciones básicas de movimiento
+        function moveUp() { /* Lógica de scroll opcional */ }
+        function moveDown() { /* Lógica de scroll opcional */ }
+    </script>
+
+    <a href="https://gopichakradhar.me" target="_blank" id="super-btn">
+        <img src="https://ik.imagekit.io/gopichakradhar/assets/super.jpg?updatedAt=1748004690247" alt="Super" />
+    </a>
 </body>
 </html>
