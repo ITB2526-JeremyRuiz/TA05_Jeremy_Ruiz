@@ -2,46 +2,55 @@
 <html lang="es">
 <head>
     <meta charset="UTF-8">
-    <title>Todos los Proyectos</title>
+    <title>Catálogo Completo - Netflix</title>
     <style>
-        body { font-family: sans-serif; padding: 20px; }
-        table { width: 100%; border-collapse: collapse; margin-top: 20px; }
-        th, td { border: 1px solid #ddd; padding: 12px; text-align: left; }
-        th { background-color: #f2f2f2; }
-        tr:hover { background-color: #f9f9f9; }
+        body { font-family: 'Helvetica Neue', Arial, sans-serif; background: #141414; color: white; padding: 30px; }
+        table { width: 100%; border-collapse: collapse; margin-top: 30px; background: #1f1f1f; }
+        th, td { padding: 15px; text-align: left; border-bottom: 1px solid #333; }
+        th { background: #000; color: #e50914; text-transform: uppercase; letter-spacing: 1px; }
+        tr:hover { background: #2b2b2b; }
+        a { color: #e50914; text-decoration: none; font-weight: bold; }
+        a:hover { text-decoration: underline; }
+        .nav-link { color: white; margin-bottom: 20px; display: inline-block; }
     </style>
 </head>
 <body>
-    <nav><a href="index.html">Volver a Inicio</a></nav>
-    <h1>Listado Completo de Proyectos</h1>
+    <a href="index.html" class="nav-link">← Volver al Inicio</a>
+    <h1>Catálogo Completo de Series (Proyectos)</h1>
+    
     <table>
         <thead>
             <tr>
-                <th>Nombre del Proyecto</th>
-                <th>Estado</th>
+                <th>Serie</th>
+                <th>Concepto</th>
                 <th>Acción</th>
             </tr>
         </thead>
         <tbody>
             <tr>
-                <td>Sistema de Gestión E-commerce</td>
-                <td>Completado</td>
-                <td><a href="proyecto1.html">Ver Detalles</a></td>
+                <td><strong>One Piece</strong></td>
+                <td>La búsqueda del tesoro definitivo en un mundo de piratas.</td>
+                <td><a href="proyecto1.html">Ver Detalle</a></td>
             </tr>
             <tr>
-                <td>App de Clima en Tiempo Real</td>
-                <td>Completado</td>
-                <td><a href="proyecto2.html">Ver Detalles</a></td>
+                <td><strong>Stranger Things</strong></td>
+                <td>Misterios sobrenaturales y dimensiones paralelas en los 80.</td>
+                <td><a href="proyecto2.html">Ver Detalle</a></td>
             </tr>
             <tr>
-                <td>Red Social para Mascotas</td>
-                <td>En desarrollo</td>
-                <td>(Sin enlace)</td>
+                <td>The Crown</td>
+                <td>La historia política y personal del reinado de Isabel II.</td>
+                <td><em>Próximamente</em></td>
             </tr>
             <tr>
-                <td>Blog de Tecnología</td>
-                <td>Pausado</td>
-                <td>(Sin enlace)</td>
+                <td>The Witcher</td>
+                <td>Un cazador de monstruos mutante lucha por su lugar en el mundo.</td>
+                <td><em>Próximamente</em></td>
+            </tr>
+            <tr>
+                <td>Black Mirror</td>
+                <td>Antología que explora el lado oscuro de la tecnología.</td>
+                <td><em>Próximamente</em></td>
             </tr>
         </tbody>
     </table>
