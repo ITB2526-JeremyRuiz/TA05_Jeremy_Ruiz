@@ -1,41 +1,62 @@
 <!DOCTYPE html>
-<html lang="en">
-
+<html lang="es">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Team Carousel</title>
+  <title>Netflix Proyectos - Carousel</title>
   <link rel="stylesheet" href="styles.css">
+  <style>
+    /* Estilo para el botón de enlace que falta en tu CSS */
+    .btn-link {
+      display: inline-block;
+      margin-top: 15px;
+      padding: 10px 25px;
+      background-color: #e50914;
+      color: white;
+      text-decoration: none;
+      border-radius: 4px;
+      font-weight: bold;
+      text-transform: uppercase;
+    }
+    nav { position: fixed; top: 20px; z-index: 1000; }
+    nav a { color: #848696; text-decoration: none; font-weight: bold; margin: 0 20px; }
+    nav a:hover { color: rgb(8, 42, 123); }
+  </style>
 </head>
 
 <body>
+  <nav>
+    <a href="index.html">INICIO</a>
+    <a href="proyectos.html">TODOS LOS PROYECTOS</a>
+  </nav>
+
   <div class="main-container">
     <div class="carousel-section">
       <div class="carousel-container">
-        <button class="nav-arrow up">
-          <img src="assets/top.png" alt="Up">
+        <button class="nav-arrow up" id="btnUp">
+          <img src="https://ik.imagekit.io/gopichakradhar/icons/top.png?updatedAt=1754290522765" alt="Up">
         </button>
         <div class="carousel-track">
-          <div class="card" data-index="0">
-            <img src="https://ik.imagekit.io/gopichakradhar/luffy/o1.jpeg?updatedAt=1754289569411" alt="Team Member 1">
+          <div class="card center" data-index="0">
+            <img src="https://ik.imagekit.io/gopichakradhar/luffy/o1.jpeg?updatedAt=1754289569411" alt="One Piece">
           </div>
-          <div class="card" data-index="1">
-            <img src="https://ik.imagekit.io/gopichakradhar/luffy/o2.jpeg?updatedAt=1754289569307" alt="Team Member 2">
+          <div class="card down-1" data-index="1">
+            <img src="https://ik.imagekit.io/gopichakradhar/luffy/o2.jpeg?updatedAt=1754289569307" alt="Stranger Things">
           </div>
-          <div class="card" data-index="2">
-            <img src="https://ik.imagekit.io/gopichakradhar/luffy/o4.jpeg?updatedAt=1754289569398" alt="Team Member 3">
+          <div class="card down-2" data-index="2">
+            <img src="https://ik.imagekit.io/gopichakradhar/luffy/o4.jpeg?updatedAt=1754289569398" alt="The Crown">
           </div>
-          <div class="card" data-index="3">
-            <img src="https://ik.imagekit.io/gopichakradhar/luffy/o3.jpeg?updatedAt=1754289569422" alt="Team Member 4">
+          <div class="card hidden" data-index="3">
+            <img src="https://ik.imagekit.io/gopichakradhar/luffy/o3.jpeg?updatedAt=1754289569422" alt="The Witcher">
           </div>
-          <div class="card" data-index="4">
-            <img src="https://ik.imagekit.io/gopichakradhar/luffy/o5.jpeg?updatedAt=1754289569406" alt="Team Member 5">
+          <div class="card hidden" data-index="4">
+            <img src="https://ik.imagekit.io/gopichakradhar/luffy/o5.jpeg?updatedAt=1754289569406" alt="Cobra Kai">
           </div>
-          <div class="card" data-index="5">
-            <img src="https://ik.imagekit.io/gopichakradhar/luffy/o6.jpeg?updatedAt=1754289569438" alt="Team Member 6">
+          <div class="card hidden" data-index="5">
+            <img src="https://ik.imagekit.io/gopichakradhar/luffy/o6.jpeg?updatedAt=1754289569438" alt="Elite">
           </div>
         </div>
-        <button class="nav-arrow down">
+        <button class="nav-arrow down" id="btnDown">
           <img src="https://ik.imagekit.io/gopichakradhar/icons/down.png?updatedAt=1754290523249" alt="Down">
         </button>
       </div>
@@ -43,17 +64,18 @@
 
     <div class="controls-section">
       <div class="nav-controls">
-        <button class="nav-arrow up">
+        <button class="nav-arrow up" id="ctrlUp">
           <img src="https://ik.imagekit.io/gopichakradhar/icons/top.png?updatedAt=1754290522765" alt="Up">
         </button>
-        <button class="nav-arrow down">
+        <button class="nav-arrow down" id="ctrlDown">
           <img src="https://ik.imagekit.io/gopichakradhar/icons/down.png?updatedAt=1754290523249" alt="Down">
         </button>
       </div>
 
       <div class="member-info">
-        <h2 class="member-name">Emily Kim</h2>
-        <p class="member-role">Founder</p>
+        <h2 class="member-name" id="seriesTitle">One Piece</h2>
+        <p class="member-role" id="seriesConcept">"Un viaje épico por la libertad"</p>
+        <a href="proyecto1.html" class="btn-link" id="seriesLink">Ver Detalles</a>
       </div>
 
       <div class="dots">
@@ -67,11 +89,48 @@
     </div>
   </div>
 
-  <script src="scripts.js"></script>
-  <!-- Floating button with image -->
+  <script>
+    const data = [
+      { name: "One Piece", role: "Un viaje épico por la libertad", link: "proyecto1.html" },
+      { name: "Stranger Things", role: "Misterios en el mundo del revés", link: "proyecto2.html" },
+      { name: "The Crown", role: "El peso de la corona", link: "proyectos.html" },
+      { name: "The Witcher", role: "Cazando monstruos y destino", link: "proyectos.html" },
+      { name: "Cobra Kai", role: "El karate nunca muere", link: "proyectos.html" },
+      { name: "Elite", role: "Secretos en las encinas", link: "proyectos.html" }
+    ];
+
+    let currentIndex = 0;
+    const cards = document.querySelectorAll('.card');
+    const dots = document.querySelectorAll('.dot');
+
+    function update() {
+      cards.forEach((card, i) => {
+        card.className = 'card';
+        if (i === currentIndex) card.classList.add('center');
+        else if (i === (currentIndex - 1 + cards.length) % cards.length) card.classList.add('up-1');
+        else if (i === (currentIndex - 2 + cards.length) % cards.length) card.classList.add('up-2');
+        else if (i === (currentIndex + 1) % cards.length) card.classList.add('down-1');
+        else if (i === (currentIndex + 2) % cards.length) card.classList.add('down-2');
+        else card.classList.add('hidden');
+      });
+
+      document.getElementById('seriesTitle').innerText = data[currentIndex].name;
+      document.getElementById('seriesConcept').innerText = data[currentIndex].role;
+      document.getElementById('seriesLink').href = data[currentIndex].link;
+
+      dots.forEach((dot, i) => dot.classList.toggle('active', i === currentIndex));
+    }
+
+    [document.getElementById('btnDown'), document.getElementById('ctrlDown')].forEach(b => {
+      b.onclick = () => { currentIndex = (currentIndex + 1) % cards.length; update(); }
+    });
+    [document.getElementById('btnUp'), document.getElementById('ctrlUp')].forEach(b => {
+      b.onclick = () => { currentIndex = (currentIndex - 1 + cards.length) % cards.length; update(); }
+    });
+  </script>
+
   <a href="https://gopichakradhar.me" target="_blank" id="super-btn" title="Visit gopichakradhar.me">
     <img src="https://ik.imagekit.io/gopichakradhar/assets/super.jpg?updatedAt=1748004690247" alt="Super" />
   </a>
 </body>
-
 </html>
