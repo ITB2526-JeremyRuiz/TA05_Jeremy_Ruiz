@@ -2,50 +2,80 @@
 <html lang="es">
 <head>
     <meta charset="UTF-8">
-    <title>Todos los Proyectos</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Catálogo Completo</title>
+    <link rel="stylesheet" href="styles.css">
     <style>
-        body { font-family: sans-serif; background: #000; color: #fff; padding: 40px; }
-        table { width: 100%; border-collapse: collapse; margin-top: 20px; }
-        th, td { border: 1px solid #333; padding: 15px; text-align: left; }
-        th { background: #111; color: #e50914; }
-        tr:hover { background: #222; }
-        a { color: #fff; text-decoration: none; font-weight: bold; }
-        .status { color: #46d369; }
+        .catalogo-container {
+            padding: 100px 50px 50px;
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 30px;
+        }
+        .serie-card {
+            background: #181818;
+            border-radius: 8px;
+            overflow: hidden;
+            transition: transform 0.3s;
+            cursor: pointer;
+            text-decoration: none;
+            color: white;
+        }
+        .serie-card:hover {
+            transform: scale(1.05);
+        }
+        .serie-card img {
+            width: 100%;
+            aspect-ratio: 2/3;
+            object-fit: cover;
+        }
+        .serie-info {
+            padding: 15px;
+        }
+        .serie-info h3 { margin: 0; font-size: 1.1rem; }
+        .serie-info p { color: #46d369; font-size: 0.85rem; margin-top: 5px; }
     </style>
 </head>
-<body>
-    <h1>Catálogo Completo de Proyectos</h1>
-    <table>
-        <thead>
-            <tr>
-                <th>PROYECTO</th>
-                <th>CATEGORÍA</th>
-                <th>ESTADO</th>
-                <th>ACCESO</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr>
-                <td>One Piece</td>
-                <td>Anime / Aventura</td>
-                <td class="status">● Activo</td>
-                <td><a href="proyecto1.html">VER MÁS</a></td>
-            </tr>
-            <tr>
-                <td>Stranger Things</td>
-                <td>Ciencia Ficción</td>
-                <td class="status">● Activo</td>
-                <td><a href="proyecto2.html">VER MÁS</a></td>
-            </tr>
-            <tr>
-                <td>The Crown</td>
-                <td>Drama</td>
-                <td class="status">● Activo</td>
-                <td><a href="proyecto3.html">VER MÁS</a></td>
-            </tr>
-        </tbody>
-    </table>
-    <br>
-    <a href="index.html" style="color: #e50914;">← Volver al Carrusel Principal</a>
+<body style="background: #141414;">
+
+    <header class="main-header">
+        <div class="logo">NETFLIX PORTFOLIO</div>
+        <nav>
+            <ul>
+                <li><a href="index.html">Inicio</a></li>
+                <li><a href="proyectos.html" style="color: #e50914;">Catálogo</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <h1 style="color: white; padding: 120px 50px 0; margin-bottom: -50px;">Nuestro Catálogo</h1>
+
+    <div class="catalogo-container">
+        <a href="proyecto1.html" class="serie-card">
+            <img src="assets/onepiece.jpg" alt="One Piece">
+            <div class="serie-info">
+                <h3>One Piece</h3>
+                <p>Aventura / Anime</p>
+            </div>
+        </a>
+
+        <a href="proyecto2.html" class="serie-card">
+            <img src="assets/stranger.jpg" alt="Stranger Things">
+            <div class="serie-info">
+                <h3>Stranger Things</h3>
+                <p>Ciencia Ficción / Misterio</p>
+            </div>
+        </a>
+
+        <a href="proyecto3.html" class="serie-card">
+            <img src="assets/thecrown.jpg" alt="The Crown">
+            <div class="serie-info">
+                <h3>The Crown</h3>
+                <p>Drama Histórico</p>
+            </div>
+        </a>
+
+        </div>
+
 </body>
 </html>
