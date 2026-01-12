@@ -1,123 +1,77 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Netflix Proyectos - 3D Carousel</title>
-    <link rel="stylesheet" href="styles.css">
-    <style>
-        /* Ajuste rápido para el botón de ver detalle que no estaba en tu CSS */
-        .btn-detalle {
-            background-color: rgb(8, 42, 123);
-            color: white;
-            padding: 12px 25px;
-            text-decoration: none;
-            border-radius: 4px;
-            font-weight: bold;
-            margin-top: 20px;
-            display: inline-block;
-            transition: 0.3s;
-        }
-        .btn-detalle:hover { transform: scale(1.05); background: #e50914; }
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Team Carousel</title>
+  <link rel="stylesheet" href="styles.css">
 </head>
+
 <body>
-    <div class="main-container">
-        <div class="carousel-section">
-            <div class="carousel-container">
-                <div class="carousel-track" id="track">
-                    <div class="card center" data-index="0">
-                        <img src="https://ik.imagekit.io/gopichakradhar/luffy/o1.jpeg?updatedAt=1754289569411" alt="One Piece">
-                    </div>
-                    <div class="card down-1" data-index="1">
-                        <img src="https://ik.imagekit.io/gopichakradhar/luffy/o2.jpeg?updatedAt=1754289569307" alt="Stranger Things">
-                    </div>
-                    <div class="card down-2" data-index="2">
-                        <img src="https://ik.imagekit.io/gopichakradhar/luffy/o4.jpeg?updatedAt=1754289569398" alt="The Crown">
-                    </div>
-                    <div class="card hidden" data-index="3">
-                        <img src="https://ik.imagekit.io/gopichakradhar/luffy/o3.jpeg?updatedAt=1754289569422" alt="The Witcher">
-                    </div>
-                </div>
-            </div>
+  <div class="main-container">
+    <div class="carousel-section">
+      <div class="carousel-container">
+        <button class="nav-arrow up">
+          <img src="assets/top.png" alt="Up">
+        </button>
+        <div class="carousel-track">
+          <div class="card" data-index="0">
+            <img src="https://ik.imagekit.io/gopichakradhar/luffy/o1.jpeg?updatedAt=1754289569411" alt="Team Member 1">
+          </div>
+          <div class="card" data-index="1">
+            <img src="https://ik.imagekit.io/gopichakradhar/luffy/o2.jpeg?updatedAt=1754289569307" alt="Team Member 2">
+          </div>
+          <div class="card" data-index="2">
+            <img src="https://ik.imagekit.io/gopichakradhar/luffy/o4.jpeg?updatedAt=1754289569398" alt="Team Member 3">
+          </div>
+          <div class="card" data-index="3">
+            <img src="https://ik.imagekit.io/gopichakradhar/luffy/o3.jpeg?updatedAt=1754289569422" alt="Team Member 4">
+          </div>
+          <div class="card" data-index="4">
+            <img src="https://ik.imagekit.io/gopichakradhar/luffy/o5.jpeg?updatedAt=1754289569406" alt="Team Member 5">
+          </div>
+          <div class="card" data-index="5">
+            <img src="https://ik.imagekit.io/gopichakradhar/luffy/o6.jpeg?updatedAt=1754289569438" alt="Team Member 6">
+          </div>
         </div>
-
-        <div class="controls-section">
-            <div class="nav-controls">
-                <button class="nav-arrow up" id="prevBtn">
-                    <img src="https://ik.imagekit.io/gopichakradhar/icons/top.png?updatedAt=1754290522765" alt="Up">
-                </button>
-                <button class="nav-arrow down" id="nextBtn">
-                    <img src="https://ik.imagekit.io/gopichakradhar/icons/down.png?updatedAt=1754290523249" alt="Down">
-                </button>
-            </div>
-
-            <div class="member-info">
-                <h2 class="member-name" id="series-title">One Piece</h2>
-                <p class="member-role" id="series-desc">Adaptación Live Action</p>
-                <a href="proyecto1.html" class="btn-detalle" id="series-link">Ver Detalles</a>
-            </div>
-
-            <div class="dots" id="dotsContainer">
-                <div class="dot active"></div>
-                <div class="dot"></div>
-                <div class="dot"></div>
-                <div class="dot"></div>
-            </div>
-        </div>
+        <button class="nav-arrow down">
+          <img src="https://ik.imagekit.io/gopichakradhar/icons/down.png?updatedAt=1754290523249" alt="Down">
+        </button>
+      </div>
     </div>
 
-    <a href="https://gopichakradhar.me" target="_blank" id="super-btn">
-        <img src="https://ik.imagekit.io/gopichakradhar/assets/super.jpg?updatedAt=1748004690247" alt="Super" />
-    </a>
+    <div class="controls-section">
+      <div class="nav-controls">
+        <button class="nav-arrow up">
+          <img src="https://ik.imagekit.io/gopichakradhar/icons/top.png?updatedAt=1754290522765" alt="Up">
+        </button>
+        <button class="nav-arrow down">
+          <img src="https://ik.imagekit.io/gopichakradhar/icons/down.png?updatedAt=1754290523249" alt="Down">
+        </button>
+      </div>
 
-    <script>
-        const seriesData = [
-            { title: "One Piece", role: "Adaptación Live Action", link: "proyecto1.html" },
-            { title: "Stranger Things", role: "Misterio Sobrenatural", link: "proyecto2.html" },
-            { title: "The Crown", role: "Drama Histórico", link: "proyectos.html" },
-            { title: "The Witcher", role: "Fantasía Épica", link: "proyectos.html" }
-        ];
+      <div class="member-info">
+        <h2 class="member-name">Emily Kim</h2>
+        <p class="member-role">Founder</p>
+      </div>
 
-        let currentIndex = 0;
-        const cards = document.querySelectorAll('.card');
-        const dots = document.querySelectorAll('.dot');
+      <div class="dots">
+        <div class="dot active" data-index="0"></div>
+        <div class="dot" data-index="1"></div>
+        <div class="dot" data-index="2"></div>
+        <div class="dot" data-index="3"></div>
+        <div class="dot" data-index="4"></div>
+        <div class="dot" data-index="5"></div>
+      </div>
+    </div>
+  </div>
 
-        function updateCarousel() {
-            cards.forEach((card, i) => {
-                card.className = 'card'; // Limpiar clases
-                if (i === currentIndex) {
-                    card.classList.add('center');
-                } else if (i === (currentIndex - 1 + cards.length) % cards.length) {
-                    card.classList.add('up-1');
-                } else if (i === (currentIndex - 2 + cards.length) % cards.length) {
-                    card.classList.add('up-2');
-                } else if (i === (currentIndex + 1) % cards.length) {
-                    card.classList.add('down-1');
-                } else if (i === (currentIndex + 2) % cards.length) {
-                    card.classList.add('down-2');
-                } else {
-                    card.classList.add('hidden');
-                }
-            });
-
-            // Actualizar textos y dots
-            document.getElementById('series-title').innerText = seriesData[currentIndex].title;
-            document.getElementById('series-desc').innerText = seriesData[currentIndex].role;
-            document.getElementById('series-link').href = seriesData[currentIndex].link;
-            
-            dots.forEach((dot, i) => dot.classList.toggle('active', i === currentIndex));
-        }
-
-        document.getElementById('nextBtn').addEventListener('click', () => {
-            currentIndex = (currentIndex + 1) % cards.length;
-            updateCarousel();
-        });
-
-        document.getElementById('prevBtn').addEventListener('click', () => {
-            currentIndex = (currentIndex - 1 + cards.length) % cards.length;
-            updateCarousel();
-        });
-    </script>
+  <script src="scripts.js"></script>
+  <!-- Floating button with image -->
+  <a href="https://gopichakradhar.me" target="_blank" id="super-btn" title="Visit gopichakradhar.me">
+    <img src="https://ik.imagekit.io/gopichakradhar/assets/super.jpg?updatedAt=1748004690247" alt="Super" />
+  </a>
 </body>
+
 </html>
