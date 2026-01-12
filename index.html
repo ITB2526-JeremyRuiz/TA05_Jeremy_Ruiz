@@ -2,61 +2,36 @@
 <html lang="es">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Bienvenido a mi Web</title>
+    <title>Mi Portafolio - Inicio</title>
     <style>
-        /* Estilos básicos para que se vea limpio */
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background-color: #f4f4f9;
-            color: #333;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            margin: 0;
-        }
-
-        .container {
-            text-align: center;
-            background: white;
-            padding: 2rem;
-            border-radius: 10px;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-        }
-
-        h1 {
-            color: #2c3e50;
-        }
-
-        p {
-            color: #7f8c8d;
-        }
+        body { font-family: sans-serif; line-height: 1.6; margin: 0; padding: 20px; background: #f4f4f4; }
+        nav { background: #333; padding: 1rem; margin-bottom: 20px; }
+        nav a { color: white; margin-right: 15px; text-decoration: none; }
+        .container { max-width: 800px; margin: auto; background: white; padding: 30px; border-radius: 8px; }
+        .proyecto-card { border: 1px solid #ddd; padding: 15px; margin: 15px 0; border-left: 5px solid #007bff; }
+        h1 { color: #222; }
     </style>
 </head>
 <body>
-
+    <nav>
+        <a href="index.html">Inicio</a>
+        <a href="proyectos.html">Todos los Proyectos</a>
+    </nav>
     <div class="container">
-        <h1 id="saludo">¡Hola! Bienvenido.</h1>
-        <p>Esta página está alojada en GitHub Pages.</p>
+        <h1>Bienvenido a mi Portafolio</h1>
+        <p>Esta es la página principal donde muestro mi experiencia general y mis trabajos más importantes.</p>
+        
+        <h2>Proyectos Destacados</h2>
+        <div class="proyecto-card">
+            <h3>Sistema de Gestión E-commerce</h3>
+            <p>Una plataforma completa para ventas online con panel de administración.</p>
+            <a href="proyecto1.html">Ver detalle del proyecto →</a>
+        </div>
+        <div class="proyecto-card">
+            <h3>App de Clima en Tiempo Real</h3>
+            <p>Aplicación que utiliza APIs externas para predecir el tiempo con precisión.</p>
+            <a href="proyecto2.html">Ver detalle del proyecto →</a>
+        </div>
     </div>
-
-    <script>
-        // SCRIPT OPCIONAL:
-        // Descomenta la siguiente línea si quieres una ventana emergente (popup) al entrar:
-        // alert("¡Hola! Gracias por visitar mi página.");
-
-        // Este código cambia el saludo según la hora del día automáticamente
-        const hora = new Date().getHours();
-        const titulo = document.getElementById('saludo');
-
-        if (hora < 12) {
-            titulo.innerText = "¡Buenos días! Bienvenido.";
-        } else if (hora < 20) {
-            titulo.innerText = "¡Buenas tardes! Bienvenido.";
-        } else {
-            titulo.innerText = "¡Buenas noches! Bienvenido.";
-        }
-    </script>
 </body>
 </html>
