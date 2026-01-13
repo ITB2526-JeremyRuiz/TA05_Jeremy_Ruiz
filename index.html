@@ -1,151 +1,79 @@
 <!DOCTYPE html>
 <html lang="es">
-
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Netflix Proyectos - Team Carousel</title>
-  <link rel="stylesheet" href="styles.css">
-  <style>
-    /* Estilo para que todas las imágenes encajen perfecto sin deformarse */
-    .card img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover; /* Esto hace que la imagen rellene la carta sin estirarse */
-      border-radius: 8px;
-    }
-    
-    /* Estilo extra para el botón de ver más */
-    .btn-detalle {
-      display: inline-block;
-      margin-top: 15px;
-      padding: 10px 20px;
-      background-color: #e50914;
-      color: white;
-      text-decoration: none;
-      border-radius: 4px;
-      font-weight: bold;
-      transition: 0.3s;
-    }
-    .btn-detalle:hover {
-      background-color: #b20710;
-      transform: scale(1.05);
-    }
-  </style>
-</head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sección de Proyectos</title>
+    <style>
+        /* Estilos generales del contenedor */
+        .container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 40px; /* Espacio entre los proyectos */
+            padding: 50px;
+            font-family: Arial, sans-serif;
+            min-height: 80vh;
+        }
 
+        /* Estructura de cada bloque de proyecto */
+        .proyecto-card {
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        /* Etiqueta superior "MOST VIEWED" */
+        .status-tag {
+            font-size: 14px;
+            font-weight: bold;
+            margin-bottom: 10px;
+            text-transform: uppercase;
+        }
+
+        /* El recuadro de la imagen */
+        .imagen-placeholder {
+            width: 300px;
+            height: 180px;
+            border: 4px solid black;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-weight: bold;
+            font-size: 18px;
+            background-color: #fff;
+            margin-bottom: 15px;
+        }
+
+        /* Nombre del proyecto en la parte inferior */
+        .proyecto-titulo {
+            font-size: 16px;
+            text-transform: uppercase;
+        }
+    </style>
+</head>
 <body>
-  <header class="main-header">
-    <div class="logo">NETFLIX PORTFOLIO</div>
-    <nav>
-        <ul>
-            <li><a href="index.html">Inicio</a></li>
-            <li><a href="proyectos.html">Catálogo</a></li>
-        </ul>
-    </nav>
-</header>
-  <div class="main-container">
-    <div class="carousel-section">
-      <div class="carousel-container">
-        <button class="nav-arrow up" id="btnUp">
-          <img src="https://ik.imagekit.io/gopichakradhar/icons/top.png?updatedAt=1754290522765" alt="Up">
-        </button>
+
+    <div class="container">
         
-        <div class="carousel-track" id="track">
-          <div class="card" data-index="0">
-            <img src="https://fotografias-2.larazon.es/clipping/cmsimages02/2023/10/11/889B8A94-2A78-4E51-B6AD-9EE693276AC4/imagen-anime-one-piece_98.jpg?crop=1024,576,x0,y0&width=1900&height=1069&optimize=low&format=webply" alt="One Piece">
-          </div>
-          <div class="card" data-index="1">
-            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQyhjR7MwfDIBUQNUfcbpV8QCD5bqaBzlHrfQ&s" alt="Serie 2">
-          </div>
-          <div class="card" data-index="2">
-            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ76RjYp304859TfD7H9XzX9Y_8_I737_9_mQ&s" alt="Serie 3">
-          </div>
-          <div class="card" data-index="3">
-            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR07_I8u-q_zJ6u-tWf4qY9_z_u0u7-x-7_XQ&s" alt="Serie 4">
-          </div>
+        <div class="proyecto-card">
+            <div class="status-tag">MOST VIEWED</div>
+            <div class="imagen-placeholder">
+                IMAGEN
+            </div>
+            <div class="proyecto-titulo">PROYECTO 1</div>
         </div>
 
-        <button class="nav-arrow down" id="btnDown">
-          <img src="https://ik.imagekit.io/gopichakradhar/icons/down.png?updatedAt=1754290523249" alt="Down">
-        </button>
-      </div>
+        <div class="proyecto-card">
+            <div class="status-tag">MOST VIEWED</div>
+            <div class="imagen-placeholder">
+                IMAGEN
+            </div>
+            <div class="proyecto-titulo">PROYECTO 2</div>
+        </div>
+
     </div>
 
-    <div class="controls-section">
-      <div class="nav-controls">
-        <button class="nav-arrow up" id="ctrlUp">
-          <img src="https://ik.imagekit.io/gopichakradhar/icons/top.png?updatedAt=1754290522765" alt="Up">
-        </button>
-        <button class="nav-arrow down" id="ctrlDown">
-          <img src="https://ik.imagekit.io/gopichakradhar/icons/down.png?updatedAt=1754290523249" alt="Down">
-        </button>
-      </div>
-
-      <div class="member-info">
-        <h2 class="member-name" id="info-title">One Piece</h2>
-        <p class="member-role" id="info-desc">El Rey de los Piratas</p>
-        <a href="proyecto1.html" class="btn-detalle" id="info-link">VER PROYECTO</a>
-      </div>
-
-      <div class="dots">
-        <div class="dot active" data-index="0"></div>
-        <div class="dot" data-index="1"></div>
-        <div class="dot" data-index="2"></div>
-        <div class="dot" data-index="3"></div>
-      </div>
-    </div>
-  </div>
-
-  <script>
-    // Datos de tus proyectos
-    const proyectos = [
-      { title: "One Piece", desc: "Aventura Épica", link: "proyecto1.html" },
-      { title: "Stranger Things", desc: "Misterio y Suspenso", link: "proyecto2.html" },
-      { title: "The Crown", desc: "Drama Histórico", link: "proyecto3.html" },
-      { title: "Netflix Originals", desc: "Catálogo Completo", link: "proyectos.html" }
-    ];
-
-    let currentIndex = 0;
-    const cards = document.querySelectorAll('.card');
-    const dots = document.querySelectorAll('.dot');
-
-    function updateCarousel() {
-      cards.forEach((card, i) => {
-        card.className = 'card'; // Limpiar clases
-        
-        if (i === currentIndex) {
-          card.classList.add('center');
-        } else if (i === (currentIndex + 1) % cards.length) {
-          card.classList.add('down-1');
-        } else if (i === (currentIndex - 1 + cards.length) % cards.length) {
-          card.classList.add('up-1');
-        } else {
-          card.classList.add('hidden');
-        }
-      });
-
-      // Actualizar Texto y Enlace
-      document.getElementById('info-title').innerText = proyectos[currentIndex].title;
-      document.getElementById('info-desc').innerText = proyectos[currentIndex].desc;
-      document.getElementById('info-link').href = proyectos[currentIndex].link;
-
-      // Actualizar Dots
-      dots.forEach((dot, i) => dot.classList.toggle('active', i === currentIndex));
-    }
-
-    // Botones
-    document.getElementById('btnUp').onclick = () => { currentIndex = (currentIndex - 1 + cards.length) % cards.length; updateCarousel(); };
-    document.getElementById('ctrlUp').onclick = () => { currentIndex = (currentIndex - 1 + cards.length) % cards.length; updateCarousel(); };
-    document.getElementById('btnDown').onclick = () => { currentIndex = (currentIndex + 1) % cards.length; updateCarousel(); };
-    document.getElementById('ctrlDown').onclick = () => { currentIndex = (currentIndex + 1) % cards.length; updateCarousel(); };
-
-    // Inicializar
-    updateCarousel();
-  </script>
-
-  <a href="https://gopichakradhar.me" target="_blank" id="super-btn">
-    <img src="https://ik.imagekit.io/gopichakradhar/assets/super.jpg?updatedAt=1748004690247" alt="Super" />
-  </a>
 </body>
 </html>
