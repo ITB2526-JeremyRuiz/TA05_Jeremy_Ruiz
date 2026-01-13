@@ -121,3 +121,13 @@ body {
     letter-spacing: 1px;
 }
 
+
+.circle-box {
+    text-decoration: none;
+    color: #ffffff;
+}
+
+.box-text {
+    font-weight: 700;
+    letter-spacing: 2px;
+}
