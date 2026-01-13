@@ -49,20 +49,23 @@ const conceptos = [
     "Cryptography", "Botnet", "Data Leak", "Cyber Warfare", "Proxy"
 ];
 
-const grid = document.getElementById('grid-empresas');
-
-function cargarCatalogo() {
-    conceptos.forEach((nombre, index) => {
-        const link = document.createElement('a');
-        link.href = "#"; // Aquí podrías poner enlaces reales a futuro
-        link.className = "circle-small";
-        
-        // Añadimos un pequeño retraso en la animación para cada bola (efecto cascada)
-        link.style.animationDelay = `${index * 0.05}s`;
-        
-        link.innerHTML = `<span>${nombre.toUpperCase()}</span>`;
-        grid.appendChild(link);
-    });
+function cargarTodo() {
+    const grid = document.getElementById('grid-empresas');
+    
+    // Si el grid existe (estamos en catalogo.html), generamos las 30 bolas
+    if (grid) {
+        grid.innerHTML = ""; // Limpia por si acaso
+        conceptos.forEach((nombre, index) => {
+            const link = document.createElement('a');
+            link.href = "#";
+            link.className = "circle-small";
+            link.style.animationDelay = `${index * 0.03}s`;
+            link.innerHTML = `<span>${nombre.toUpperCase()}</span>`;
+            grid.appendChild(link);
+        });
+    }
 }
 
-document.addEventListener('DOMContentLoaded', cargarCatalogo);
+// Ejecutar cuando cargue el DOM
+document.addEventListener('DOMContentLoaded', cargarTodo);
+
