@@ -46,6 +46,37 @@ const conceptos = [
 document.addEventListener('DOMContentLoaded', () => {
     // --- LÓGICA PARA EL INDEX (2 BOLAS GRANDES) ---
     // Cambiamos el ID para que coincida con tu HTML
+    let idiomaActual = 'es';
+
+document.getElementById('btn-idioma')?.addEventListener('click', (e) => {
+    idiomaActual = idiomaActual === 'es' ? 'en' : 'es';
+    e.target.innerText = idiomaActual === 'es' ? 'EN' : 'ES';
+    actualizarTextos();
+});
+
+function actualizarTextos() {
+    const t = traducciones[idiomaActual];
+    
+    // Actualizar Textos Inicio
+    const titulo = document.querySelector('.main-header h1');
+    if (titulo) titulo.innerText = t.titulo_principal;
+
+    const subtitulo = document.querySelector('.main-header p');
+    if (subtitulo) subtitulo.innerText = t.subtitulo_principal;
+
+    const btnExplorar = document.querySelector('.btn-catalogo-principal');
+    if (btnExplorar) btnExplorar.innerText = t.btn_explorar;
+
+    // Actualizar los proyectos dinámicos
+    // Aquí actualizamos el array 'proyectos' y volvemos a llamar a la función que los dibuja
+    proyectos[0].nombre = t.defensa_titulo;
+    proyectos[0].descripcion = t.defensa_desc;
+    proyectos[1].nombre = t.cifrado_titulo;
+    proyectos[1].descripcion = t.cifrado_desc;
+    
+    // Llamar a la función que renderiza (la que ya tienes)
+    renderizarProyectos(); 
+}
     const contenedorIndex = document.getElementById('contenedor-proyectos-principales');
 
     if (contenedorIndex) {
@@ -86,5 +117,6 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 });
+
 
 
