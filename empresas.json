@@ -1,6 +1,20 @@
 [
-  { "id": 1, "nombre": "CROWDSTRIKE", "tipo": "Top", "link": "https://www.crowdstrike.com" },
-  { "id": 2, "nombre": "MANDIANT", "tipo": "Top", "link": "https://www.mandiant.com" },
-  { "id": 3, "nombre": "PALO ALTO", "tipo": "Extra", "link": "#" },
-  { "id": 4, "nombre": "FORTINET", "tipo": "Extra", "link": "#" }
+  {
+    "tag": "TOP SECURITY",
+    "titulo": "PENTESTING",
+    "nombre": "PROYECTO 1",
+    "link": "proyectos.html"
+  },
+  {
+    "tag": "HIGH PRIORITY",
+    "titulo": "DEFENSE",
+    "nombre": "PROYECTO 2",
+    "link": "proyectos.html"
+  },
+  {
+    "tag": "CRITICAL SYSTEM",
+    "titulo": "SOC",
+    "nombre": "PROYECTO 3",
+    "link": "proyectos.html"
+  }
 ]
