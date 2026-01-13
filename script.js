@@ -1,25 +1,46 @@
 fetch('empresas.json')
-    .then(response => response.json())
+    .then(res => res.json())
     .then(data => {
-        const contenedor = document.getElementById('contenedor-proyectos');
 
-        data.forEach(item => {
-            const proyecto = document.createElement('div');
-            proyecto.className = 'proyecto-item';
+        // INDEX (solo 2)
+        const indexContainer = document.getElementById('contenedor-proyectos');
+        if (indexContainer) {
+            data.slice(0, 2).forEach(renderCircle(indexContainer, false));
+        }
 
-            proyecto.innerHTML = `
-                <span class="tag">${item.tag}</span>
+        // CATÁLOGO (todos)
+        const catalogo = document.getElementById('catalogo-container');
+        if (catalogo) {
+            data.forEach(renderCircle(catalogo, true));
+        }
 
-                <a href="${item.link}" class="circle-box">
-                    <span class="box-text">${item.titulo}</span>
-                </a>
+        // PROYECTO DETALLE
+        const detalle = document.getElementById('detalle-proyecto');
+        if (detalle) {
+            const id = new URLSearchParams(window.location.search).get('id');
+            const proyecto = data.find(p => p.id == id);
 
-                <span class="footer-text">${item.nombre}</span>
-            `;
-
-            contenedor.appendChild(proyecto);
-        });
-    })
-    .catch(error => {
-        console.error('Error cargando empresas.json:', error);
+            if (proyecto) {
+                detalle.innerHTML = `
+                    <img src="${proyecto.logo}" class="project-logo">
+                    <h1>${proyecto.nombre}</h1>
+                    <p>${proyecto.descripcion}</p>
+                `;
+            }
+        }
     });
+
+function renderCircle(container, small) {
+    return item => {
+        const div = document.createElement('div');
+        div.className = `proyecto-item ${small ? 'small' : ''}`;
+        div.innerHTML = `
+            <span class="tag">${item.tag}</span>
+            <a href="${item.link}" class="circle-box">
+                <span class="box-text">${item.titulo}</span>
+            </a>
+            <span class="footer-text">${item.nombre}</span>
+        `;
+        container.appendChild(div);
+    };
+}
