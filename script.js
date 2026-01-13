@@ -1,26 +1,44 @@
-function renderCircle(container, small) {
-    return item => {
-        const div = document.createElement('div');
-        div.className = `proyecto-item ${small ? 'small' : ''}`;
+// Arreglo con la información de los proyectos
+const proyectos = [
+    {
+        titulo: "Proyecto 1",
+        archivo: "proyecto 1", // El nombre exacto de tu archivo en la carpeta
+        descripcion: "Análisis de vulnerabilidades y defensa de red."
+    },
+    {
+        titulo: "Proyecto 2",
+        archivo: "proyecto 2",
+        descripcion: "Implementación de protocolos de cifrado avanzado."
+    }
+];
 
-        if (item.activo) {
-            div.innerHTML = `
-                <span class="tag">${item.tag}</span>
-                <a href="${item.link}" class="circle-box">
-                    <span class="box-text">${item.titulo}</span>
-                </a>
-                <span class="footer-text">${item.nombre}</span>
-            `;
-        } else {
-            div.innerHTML = `
-                <span class="tag">${item.tag || 'SECURITY NODE'}</span>
-                <div class="circle-box disabled">
-                    <span class="box-text">PRÓXIMAMENTE</span>
+const contenedor = document.getElementById('contenedor-proyectos');
+
+// Función para cargar los proyectos
+async function cargarProyectos() {
+    for (const proy of proyectos) {
+        try {
+            // Buscamos el contenido del archivo de texto
+            const respuesta = await fetch(proy.archivo);
+            const texto = await respuesta.text();
+
+            // Creamos el elemento HTML dinámicamente
+            const card = document.createElement('div');
+            card.className = 'project-card';
+            card.innerHTML = `
+                <h2>${proy.titulo}</h2>
+                <div class="contenido-proyecto">
+                    ${texto}
                 </div>
-                <span class="footer-text">EN DESARROLLO</span>
+                <p class="meta">${proy.descripcion}</p>
             `;
+            
+            contenedor.appendChild(card);
+        } catch (error) {
+            console.error("Error cargando el archivo:", proy.archivo, error);
         }
-
-        container.appendChild(div);
-    };
+    }
 }
+
+// Ejecutar al cargar la página
+document.addEventListener('DOMContentLoaded', cargarProyectos);
