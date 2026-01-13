@@ -1,3 +1,24 @@
+const traducciones = {
+    es: {
+        titulo_principal: "CIBERSEGURIDAD: SISTEMAS CRÍTICOS",
+        subtitulo_principal: "Seleccione un módulo de acceso para comenzar",
+        btn_explorar: "EXPLORAR CATÁLOGO COMPLETO",
+        defensa_titulo: "DEFENSA",
+        defensa_desc: "Análisis de Red",
+        cifrado_titulo: "CIFRADO",
+        cifrado_desc: "Protocolos SSL"
+    },
+    en: {
+        titulo_principal: "CYBERSECURITY: CRITICAL SYSTEMS",
+        subtitulo_principal: "Select an access module to begin",
+        btn_explorar: "EXPLORE FULL CATALOG",
+        defensa_titulo: "DEFENSE",
+        defensa_desc: "Network Analysis",
+        cifrado_titulo: "ENCRYPTION",
+        cifrado_desc: "SSL Protocols"
+    }
+};
+
 const proyectos = [
     {
         nombre: "DEFENSA",
@@ -65,4 +86,5 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 });
+
 
