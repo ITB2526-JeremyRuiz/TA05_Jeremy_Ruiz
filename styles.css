@@ -232,3 +232,8 @@ body {
     }
 }
 
+.circle-box, .circle-small, .btn-catalogo-principal {
+    cursor: pointer;
+    -webkit-tap-highlight-color: transparent; /* Quita el cuadro azul feo al tocar en Android/iOS */
+    touch-action: manipulation; /* Optimiza el clic para que no haya retraso de 300ms */
+}
