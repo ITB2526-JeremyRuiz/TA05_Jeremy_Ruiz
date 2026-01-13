@@ -1,14 +1,15 @@
-// Definimos la lista de archivos HTML de tus proyectos
 const proyectos = [
     {
         nombre: "Proyecto 1",
-        archivo: "proyecto 1", // El nombre exacto que aparece en tu carpeta
-        descripcion: "Análisis de Redes y Pentesting"
+        archivo: "proyecto 1",
+        descripcion: "Análisis de vulnerabilidades y defensa de red perimetral.",
+        logo: "https://via.placeholder.com/80/00f2ff/000000?text=P1" // Sustituye por tu ruta de imagen
     },
     {
         nombre: "Proyecto 2",
         archivo: "proyecto 2",
-        descripcion: "Cifrado de Datos y Criptografía"
+        descripcion: "Implementación de protocolos de cifrado y seguridad avanzada.",
+        logo: "https://via.placeholder.com/80/00f2ff/000000?text=P2"
     }
 ];
 
@@ -16,17 +17,19 @@ const contenedor = document.getElementById('contenedor-proyectos');
 
 function renderizarProyectos() {
     proyectos.forEach(proy => {
-        // Creamos el elemento de enlace que envolverá la tarjeta
         const card = document.createElement('a');
-        card.href = proy.archivo; // Esto redirige al archivo al hacer clic
-        card.className = 'project-card-link'; // Clase para CSS
+        card.href = proy.archivo;
+        card.className = 'project-link';
         
         card.innerHTML = `
-            <article class="project-card">
-                <div class="card-glow"></div>
-                <h2>${proy.nombre}</h2>
-                <p>${proy.descripcion}</p>
-                <span class="view-more">ACCEDER AL SISTEMA _</span>
+            <article class="project-card-horizontal">
+                <div class="logo-container">
+                    <img src="${proy.logo}" alt="Logo ${proy.nombre}" class="project-logo">
+                </div>
+                <div class="text-container">
+                    <h2>${proy.nombre}</h2>
+                    <p>${proy.descripcion}</p>
+                </div>
             </article>
         `;
         
@@ -34,5 +37,4 @@ function renderizarProyectos() {
     });
 }
 
-// Inicializar cuando el DOM esté listo
 document.addEventListener('DOMContentLoaded', renderizarProyectos);
