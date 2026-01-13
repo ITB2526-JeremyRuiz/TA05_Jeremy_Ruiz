@@ -1,0 +1,6 @@
+[
+  { "id": 1, "nombre": "CROWDSTRIKE", "tipo": "Top", "link": "https://www.crowdstrike.com" },
+  { "id": 2, "nombre": "MANDIANT", "tipo": "Top", "link": "https://www.mandiant.com" },
+  { "id": 3, "nombre": "PALO ALTO", "tipo": "Extra", "link": "#" },
+  { "id": 4, "nombre": "FORTINET", "tipo": "Extra", "link": "#" }
+]
