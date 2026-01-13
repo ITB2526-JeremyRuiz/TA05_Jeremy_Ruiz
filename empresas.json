@@ -4,7 +4,7 @@
     "tag": "TOP SECURITY",
     "titulo": "PENTESTING",
     "nombre": "PROYECTO 1",
-    "descripcion": "Servicios avanzados de pentesting, auditorías de seguridad y explotación controlada de vulnerabilidades.",
+    "descripcion": "Auditoría y explotación controlada.",
     "logo": "https://dummyimage.com/200x200/00ffaa/000.png&text=P1",
     "link": "proyectos.html?id=1"
   },
@@ -13,8 +13,19 @@
     "tag": "HIGH PRIORITY",
     "titulo": "DEFENSE",
     "nombre": "PROYECTO 2",
-    "descripcion": "Sistemas de defensa perimetral, detección de intrusiones y hardening de infraestructura crítica.",
+    "descripcion": "Defensa perimetral avanzada.",
     "logo": "https://dummyimage.com/200x200/00ffaa/000.png&text=P2",
     "link": "proyectos.html?id=2"
+  },
+  {
+    "id": 3,
+    "tag": "CRITICAL SYSTEM",
+    "titulo": "SOC",
+    "nombre": "PROYECTO 3",
+    "descripcion": "Centro de operaciones de seguridad.",
+    "logo": "https://dummyimage.com/200x200/00ffaa/000.png&text=P3",
+    "link": "proyectos.html?id=3"
   }
+
+  /* DUPLICA hasta llegar a 30 */
 ]
