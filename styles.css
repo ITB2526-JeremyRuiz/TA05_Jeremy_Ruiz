@@ -38,7 +38,6 @@ body {
 
 .wrapper {
     width: 100%;
-    max-width: 1400px;
     margin: 0 auto;
     text-align: center;
 }
@@ -123,18 +122,17 @@ body {
     box-shadow: 0 0 30px #00ffaa;
 }
 
-/* 1. Estilos del contenedor del catálogo */
 .catalog-grid {
     display: grid;
-    /* Esto crea las columnas automáticamente y las centra */
+    /* auto-fit hace que las bolas se estiren para ocupar el espacio */
     grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); 
     gap: 30px;
-    padding: 80px 40px; /* Más espacio arriba y a los lados */
-    width: 90%; /* Que no ocupe el 100% real para dejar margen */
-    max-width: 1200px;
-    margin: 0 auto; /* ESTO centra el bloque entero */
-    justify-items: center; /* ESTO centra cada bola dentro de su celda */
-    align-items: center;
+    padding: 60px 5%; /* 5% de margen a los lados */
+    width: 100%;
+    max-width: 1400px; /* Un poco más ancho para que quepan más por fila */
+    margin: 0 auto; /* Centra el bloque en la pantalla */
+    justify-items: center; /* Centra cada bola en su columna */
+    align-content: start;
 }
 
 /* 2. Estilos de las bolitas */
@@ -178,5 +176,6 @@ body {
         transform: translateY(0); 
     }
 }
+
 
 
