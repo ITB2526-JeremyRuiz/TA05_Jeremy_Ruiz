@@ -1,1 +1,32 @@
-"activo": true | false
+[
+  {
+    "id": 1,
+    "activo": true,
+    "tag": "TOP SECURITY",
+    "titulo": "PENTESTING",
+    "nombre": "PROYECTO 1",
+    "descripcion": "Servicios avanzados de pentesting y auditoría.",
+    "logo": "https://dummyimage.com/200x200/00ffaa/000.png&text=P1",
+    "link": "proyectos.html?id=1"
+  },
+  {
+    "id": 2,
+    "activo": true,
+    "tag": "HIGH PRIORITY",
+    "titulo": "DEFENSE",
+    "nombre": "PROYECTO 2",
+    "descripcion": "Defensa perimetral y protección de infraestructuras.",
+    "logo": "https://dummyimage.com/200x200/00ffaa/000.png&text=P2",
+    "link": "proyectos.html?id=2"
+  },
+
+  {
+    "id": 3,
+    "activo": false,
+    "tag": "SECURITY NODE",
+    "titulo": "MODULE",
+    "nombre": "PRÓXIMAMENTE"
+  }
+
+  /* DUPLICA hasta llegar a 30 */
+]
