@@ -117,3 +117,48 @@ body {
     color: #000;
     box-shadow: 0 0 30px #00ffaa;
 }
+
+.catalog-grid {
+    display: grid;
+    /* Crea tantas columnas como quepan de 150px cada una */
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+    gap: 30px;
+    padding: 40px;
+    justify-items: center;
+}
+
+.circle-small {
+    width: 130px;
+    height: 130px;
+    border: 2px solid #00ffaa;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: rgba(0, 255, 170, 0.05);
+    color: white;
+    text-decoration: none;
+    font-size: 0.7rem;
+    font-weight: 700;
+    text-align: center;
+    padding: 10px;
+    transition: all 0.4s ease;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    opacity: 0; /* Empiezan invisibles para la animación */
+    animation: fadeIn 0.5s ease forwards;
+}
+
+.circle-small:hover {
+    background: #00ffaa;
+    color: #000;
+    transform: scale(1.1) rotate(5deg);
+    box-shadow: 0 0 25px rgba(0, 255, 170, 0.6);
+}
+
+/* Animación de entrada */
+@keyframes fadeIn {
+    to {
+        opacity: 1;
+    }
+}
