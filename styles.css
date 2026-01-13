@@ -250,3 +250,22 @@ body {
     touch-action: manipulation; /* Optimiza el clic para que no haya retraso de 300ms */
 }
 
+
+.idioma-toggle {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    background: transparent;
+    border: 1px solid #00ffaa;
+    color: #00ffaa;
+    padding: 8px 15px;
+    cursor: pointer;
+    font-weight: bold;
+    z-index: 1000;
+    transition: 0.3s;
+}
+
+.idioma-toggle:hover {
+    background: #00ffaa;
+    color: #000;
+}
