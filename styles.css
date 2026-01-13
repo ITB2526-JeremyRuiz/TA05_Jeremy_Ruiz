@@ -131,3 +131,27 @@ body {
     font-weight: 700;
     letter-spacing: 2px;
 }
+
+/* Círculos pequeños del catálogo */
+.projects-container.small {
+    flex-wrap: wrap;
+    gap: 40px;
+}
+
+.proyecto-item.small .circle-box {
+    width: 140px;
+    height: 140px;
+    border-width: 3px;
+}
+
+/* Vista detalle */
+.project-detail {
+    text-align: center;
+    padding: 40px;
+}
+
+.project-logo {
+    width: 200px;
+    margin-bottom: 30px;
+    filter: drop-shadow(0 0 20px #00ffaa);
+}
