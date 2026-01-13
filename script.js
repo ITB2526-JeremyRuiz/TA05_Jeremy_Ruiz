@@ -1,3 +1,4 @@
+// 1. DICCIONARIO DE TRADUCCIONES
 const traducciones = {
     es: {
         titulo_principal: "CIBERSEGURIDAD: SISTEMAS CRÍTICOS",
@@ -19,19 +20,10 @@ const traducciones = {
     }
 };
 
+// 2. DATOS DE PROYECTOS Y CONCEPTOS
 const proyectos = [
-    {
-        nombre: "DEFENSA",
-        archivo: "defensa.html",
-        descripcion: "Análisis de Red",
-        logo: "🛡️" // Puedes usar un emoji o ruta de imagen
-    },
-    {
-        nombre: "CIFRADO",
-        archivo: "cifrado.html",
-        descripcion: "Protocolos Ssl",
-        logo: "🔐"
-    }
+    { id: 'defensa', logo: "🛡️", archivo: "defensa.html" },
+    { id: 'cifrado', logo: "🔐", archivo: "cifrado.html" }
 ];
 
 const conceptos = [
@@ -43,21 +35,31 @@ const conceptos = [
     "Cryptography", "Botnet", "Data Leak", "Cyber Warfare", "Proxy"
 ];
 
-document.addEventListener('DOMContentLoaded', () => {
-    // --- LÓGICA PARA EL INDEX (2 BOLAS GRANDES) ---
-    // Cambiamos el ID para que coincida con tu HTML
-    let idiomaActual = 'es';
+// 3. VARIABLE DE IDIOMA (Carga lo guardado o por defecto 'es')
+let idiomaActual = localStorage.getItem('idiomaSeleccionado') || 'es';
 
-document.getElementById('btn-idioma')?.addEventListener('click', (e) => {
-    idiomaActual = idiomaActual === 'es' ? 'en' : 'es';
-    e.target.innerText = idiomaActual === 'es' ? 'EN' : 'ES';
-    actualizarTextos();
+document.addEventListener('DOMContentLoaded', () => {
+    
+    // Configurar el botón de idioma
+    const btnIdioma = document.getElementById('btn-idioma');
+    if (btnIdioma) {
+        btnIdioma.innerText = idiomaActual === 'es' ? 'EN' : 'ES';
+        btnIdioma.addEventListener('click', () => {
+            idiomaActual = idiomaActual === 'es' ? 'en' : 'es';
+            localStorage.setItem('idiomaSeleccionado', idiomaActual);
+            btnIdioma.innerText = idiomaActual === 'es' ? 'EN' : 'ES';
+            renderizarTodo(); // Volver a dibujar con el nuevo idioma
+        });
+    }
+
+    renderizarTodo();
 });
 
-function actualizarTextos() {
+// 4. FUNCIÓN PRINCIPAL DE RENDERIZADO
+function renderizarTodo() {
     const t = traducciones[idiomaActual];
-    
-    // Actualizar Textos Inicio
+
+    // --- TRADUCIR TEXTOS ESTÁTICOS ---
     const titulo = document.querySelector('.main-header h1');
     if (titulo) titulo.innerText = t.titulo_principal;
 
@@ -67,33 +69,25 @@ function actualizarTextos() {
     const btnExplorar = document.querySelector('.btn-catalogo-principal');
     if (btnExplorar) btnExplorar.innerText = t.btn_explorar;
 
-    // Actualizar los proyectos dinámicos
-    // Aquí actualizamos el array 'proyectos' y volvemos a llamar a la función que los dibuja
-    proyectos[0].nombre = t.defensa_titulo;
-    proyectos[0].descripcion = t.defensa_desc;
-    proyectos[1].nombre = t.cifrado_titulo;
-    proyectos[1].descripcion = t.cifrado_desc;
-    
-    // Llamar a la función que renderiza (la que ya tienes)
-    renderizarProyectos(); 
-}
+    // --- LÓGICA PARA EL INDEX (2 BOLAS GRANDES) ---
     const contenedorIndex = document.getElementById('contenedor-proyectos-principales');
-
     if (contenedorIndex) {
-        contenedorIndex.innerHTML = ""; // Limpia el contenido estático
+        contenedorIndex.innerHTML = ""; 
         proyectos.forEach(proy => {
+            // Buscamos la traducción según el ID (defensa o cifrado)
+            const nombreTraduccion = proy.id === 'defensa' ? t.defensa_titulo : t.cifrado_titulo;
+            const descTraduccion = proy.id === 'defensa' ? t.defensa_desc : t.cifrado_desc;
+
             const link = document.createElement('a');
             link.href = proy.archivo;
             link.className = "proyecto-item";
-            link.style.textDecoration = 'none';
-
             link.innerHTML = `
                 <div class="circle-box">
                     <div class="content-horizontal">
                         <div class="icon">${proy.logo}</div>
                         <div class="text-side">
-                            <h2>${proy.nombre}</h2>
-                            <p>${proy.descripcion}</p>
+                            <h2>${nombreTraduccion}</h2>
+                            <p>${descTraduccion}</p>
                         </div>
                     </div>
                 </div>
@@ -104,7 +98,6 @@ function actualizarTextos() {
 
     // --- LÓGICA PARA EL CATÁLOGO (30 BOLITAS) ---
     const grid = document.getElementById('grid-empresas');
-
     if (grid) {
         grid.innerHTML = ""; 
         conceptos.forEach((nombre, index) => {
@@ -116,7 +109,4 @@ function actualizarTextos() {
             grid.appendChild(bola);
         });
     }
-});
-
-
-
+}
