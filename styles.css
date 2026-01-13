@@ -123,11 +123,13 @@ body {
     box-shadow: 0 0 30px #00ffaa;
 }
 
+/* --- ESTILOS DEL CATÁLOGO --- */
+
 .catalog-grid {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
     gap: 30px;
-    padding: 60px 20px; /* Más espacio arriba para que no choque con el header */
+    padding: 60px 20px;
     width: 100%;
     max-width: 1200px;
     margin: 0 auto;
@@ -142,42 +144,34 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    background: rgba(0, 255, 170, 0.05);
-    color: white;
-    text-decoration: none;
-    font-size: 0.7rem;
+    background: rgba(0, 255, 170, 0.1);
+    color: white !important; /* Quita el azul */
+    text-decoration: none !important; /* Quita el subrayado */
+    font-size: 0.75rem;
     font-weight: 700;
     text-align: center;
-    padding: 10px;
-    transition: all 0.4s ease;
+    padding: 15px;
+    transition: 0.4s;
     text-transform: uppercase;
-    letter-spacing: 1px;
-    opacity: 0; /* Empiezan invisibles para la animación */
+    opacity: 0; /* Necesario para la animación */
     animation: fadeIn 0.5s ease forwards;
 }
 
 .circle-small:hover {
     background: #00ffaa;
-    color: #000;
+    color: #000 !important;
     transform: scale(1.1) rotate(5deg);
     box-shadow: 0 0 25px rgba(0, 255, 170, 0.6);
 }
 
-/* Animación de entrada */
+/* Animación de entrada única */
 @keyframes fadeIn {
-    to {
-        opacity: 1;
+    from { 
+        opacity: 0; 
+        transform: translateY(10px); 
+    }
+    to { 
+        opacity: 1; 
+        transform: translateY(0); 
     }
 }
-
-.circle-small {
-    /* ... tus otros estilos ... */
-    opacity: 0; 
-    animation: fadeIn 0.5s ease forwards;
-}
-
-@keyframes fadeIn {
-    from { opacity: 0; transform: translateY(10px); }
-    to { opacity: 1; transform: translateY(0); }
-}
-
