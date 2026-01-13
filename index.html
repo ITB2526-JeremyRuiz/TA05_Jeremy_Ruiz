@@ -2,29 +2,115 @@
 <html lang="es">
 <head>
     <meta charset="UTF-8">
-    <title>Cybersecurity Top Profiles</title>
+    <title>Catálogo de Empresas - CyberSec</title>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;900&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="styles.css"> <style>
+        /* REEMPLAZO DE LA CUADRÍCULA POR LISTA VERTICAL */
+        .catalog-grid {
+            display: flex;
+            flex-direction: column; /* Una debajo de otra */
+            gap: 20px;
+            padding: 40px;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        /* ESTRUCTURA HORIZONTAL */
+        .item-horizontal {
+            display: flex;
+            align-items: center; /* Centra el logo con el texto verticalmente */
+            text-decoration: none;
+            color: white;
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(0, 255, 170, 0.3);
+            padding: 15px 30px;
+            transition: 0.3s;
+            border-radius: 5px;
+        }
+
+        .item-horizontal:hover {
+            background: rgba(0, 255, 170, 0.05);
+            border-color: #00ffaa;
+            transform: translateX(10px); /* Efecto de empuje hacia la derecha */
+            box-shadow: 0 0 20px rgba(0, 255, 170, 0.1);
+        }
+
+        /* EL CÍRCULO (LOGO) */
+        .circle-small {
+            width: 80px;  /* Tamaño reducido para diseño horizontal */
+            height: 80px;
+            border: 2px solid #00ffaa;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-shrink: 0; /* Evita que el círculo se deforme */
+            margin-right: 25px; /* Espacio entre círculo y descripción */
+            background: rgba(0, 0, 0, 0.2);
+            font-size: 0.7rem;
+            text-align: center;
+            font-weight: 900;
+        }
+
+        /* TEXTO AL LADO */
+        .description-box {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .description-box h2 {
+            font-size: 1.2rem;
+            color: #00ffaa;
+            margin-bottom: 5px;
+            letter-spacing: 1px;
+        }
+
+        .description-box p {
+            font-size: 0.9rem;
+            opacity: 0.7;
+            line-height: 1.4;
+        }
+    </style>
 </head>
 <body>
     <div class="cyber-grid"></div>
-
     <div class="wrapper">
         <nav class="nav-top">
-            <a href="catalogo.html" class="btn-catalogo">EXPLORAR CATÁLOGO</a>
+            <a href="index.html" class="btn-catalogo">← INICIO</a>
         </nav>
 
         <header class="main-header">
-            <h1>Ciberseguridad: Empresas Top</h1>
-            <p>Sistemas críticos y defensa avanzada</p>
+            <h1>Directorio Completo</h1>
+            <p>Ecosistema Global de Ciberseguridad</p>
         </header>
 
-        <!-- CONTENEDOR DINÁMICO -->
-        <section class="projects-container" id="contenedor-proyectos">
-            <!-- JS inyecta aquí -->
+        <section class="catalog-grid" id="grid-empresas">
+            
+            <a href="empresa-detalle.html" class="item-horizontal">
+                <div class="circle-small">LOGO</div>
+                <div class="description-box">
+                    <h2>PALO ALTO NETWORKS</h2>
+                    <p>Líder global en firewalls de próxima generación y seguridad en la nube.</p>
+                </div>
+            </a>
+
+            <a href="#" class="item-horizontal">
+                <div class="circle-small">LOGO</div>
+                <div class="description-box">
+                    <h2>FORTINET</h2>
+                    <p>Especialistas en dispositivos de seguridad de red y servicios de protección avanzada.</p>
+                </div>
+            </a>
+
+            <a href="#" class="item-horizontal">
+                <div class="circle-small">LOGO</div>
+                <div class="description-box">
+                    <h2>ZSCALER</h2>
+                    <p>Transformación digital segura mediante una plataforma nativa en la nube.</p>
+                </div>
+            </a>
+
         </section>
     </div>
-
-    <script src="script.js"></script>
 </body>
 </html>
