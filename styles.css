@@ -7,21 +7,27 @@ body {
     background-color: #050a0f;
     color: #ffffff;
     margin: 0;
-    min-height: 100vh; /* Permite que crezca si hay mucho contenido */
+    min-height: 100vh; /* Permite que el cuerpo crezca */
+    display: flex;
+    flex-direction: column;
 }
 
 .home-layout {
-    height: 100vh;
+    min-height: 100vh; /* Cambiado de height a min-height */
     display: flex;
     justify-content: center;
     align-items: center;
-    overflow: hidden; 
+    overflow-y: auto; /* Permite scroll vertical si el contenido supera la pantalla */
+    padding: 40px 0; /* Espacio extra para que el botón no toque el borde */
 }
 
 /* FONDO RELACIONADO CON CIBERSEGURIDAD */
 .video-background {
-    position: fixed;
-    top: 0; left: 0; width: 100%; height: 100%;
+    position: fixed; /* Mantiene el fondo quieto mientras haces scroll */
+    top: 0; 
+    left: 0; 
+    width: 100%; 
+    height: 100%;
     z-index: -1;
 }
 
@@ -182,9 +188,12 @@ body {
 @media (max-width: 768px) {
     /* 1. Ajuste del Index (Las 2 bolas grandes) */
     .projects-container {
-        flex-direction: column; /* Pone una bola debajo de la otra en móviles */
-        gap: 40px;
-        padding: 20px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 100px;
+        margin: 50px 0;
+        flex-wrap: wrap; /* Permite que bajen si no caben de lado */
     }
 
     .circle-box {
@@ -210,9 +219,12 @@ body {
     }
 
     /* 3. Ajuste de las páginas de Información (Defensa/Cifrado) */
-    .wrapper {
-        padding: 15px;
+.wrapper {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
     }
+}
     
     article, .info-box {
         padding: 15px;
@@ -220,11 +232,11 @@ body {
     }
 }
 
-/* --- AJUSTE PARA PANTALLAS MUY PEQUEÑAS (iPhone SE, etc.) --- */
-@media (max-width: 400px) {
-    .circle-box {
-        width: 180px;
-        height: 180px;
+/* Media Query para móviles */
+@media (max-width: 768px) {
+    .projects-container {
+        flex-direction: column;
+        gap: 30px; /* Menos espacio entre bolas en móvil */
     }
     
     .text-side h2 {
@@ -237,3 +249,4 @@ body {
     -webkit-tap-highlight-color: transparent; /* Quita el cuadro azul feo al tocar en Android/iOS */
     touch-action: manipulation; /* Optimiza el clic para que no haya retraso de 300ms */
 }
+
