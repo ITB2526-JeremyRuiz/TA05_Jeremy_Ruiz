@@ -1,44 +1,38 @@
-// Arreglo con la información de los proyectos
+// Definimos la lista de archivos HTML de tus proyectos
 const proyectos = [
     {
-        titulo: "Proyecto 1",
-        archivo: "proyecto 1", // El nombre exacto de tu archivo en la carpeta
-        descripcion: "Análisis de vulnerabilidades y defensa de red."
+        nombre: "Proyecto 1",
+        archivo: "proyecto 1", // El nombre exacto que aparece en tu carpeta
+        descripcion: "Análisis de Redes y Pentesting"
     },
     {
-        titulo: "Proyecto 2",
+        nombre: "Proyecto 2",
         archivo: "proyecto 2",
-        descripcion: "Implementación de protocolos de cifrado avanzado."
+        descripcion: "Cifrado de Datos y Criptografía"
     }
 ];
 
 const contenedor = document.getElementById('contenedor-proyectos');
 
-// Función para cargar los proyectos
-async function cargarProyectos() {
-    for (const proy of proyectos) {
-        try {
-            // Buscamos el contenido del archivo de texto
-            const respuesta = await fetch(proy.archivo);
-            const texto = await respuesta.text();
-
-            // Creamos el elemento HTML dinámicamente
-            const card = document.createElement('div');
-            card.className = 'project-card';
-            card.innerHTML = `
-                <h2>${proy.titulo}</h2>
-                <div class="contenido-proyecto">
-                    ${texto}
-                </div>
-                <p class="meta">${proy.descripcion}</p>
-            `;
-            
-            contenedor.appendChild(card);
-        } catch (error) {
-            console.error("Error cargando el archivo:", proy.archivo, error);
-        }
-    }
+function renderizarProyectos() {
+    proyectos.forEach(proy => {
+        // Creamos el elemento de enlace que envolverá la tarjeta
+        const card = document.createElement('a');
+        card.href = proy.archivo; // Esto redirige al archivo al hacer clic
+        card.className = 'project-card-link'; // Clase para CSS
+        
+        card.innerHTML = `
+            <article class="project-card">
+                <div class="card-glow"></div>
+                <h2>${proy.nombre}</h2>
+                <p>${proy.descripcion}</p>
+                <span class="view-more">ACCEDER AL SISTEMA _</span>
+            </article>
+        `;
+        
+        contenedor.appendChild(card);
+    });
 }
 
-// Ejecutar al cargar la página
-document.addEventListener('DOMContentLoaded', cargarProyectos);
+// Inicializar cuando el DOM esté listo
+document.addEventListener('DOMContentLoaded', renderizarProyectos);
