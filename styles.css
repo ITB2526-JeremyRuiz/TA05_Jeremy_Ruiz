@@ -1,14 +1,27 @@
-/* Fuerza el fondo oscuro y la cuadrícula verde */
-body {
-    background-color: #050a0f !important;
+* {
     margin: 0;
-    font-family: 'Montserrat', sans-serif;
-    color: white;
+    padding: 0;
+    box-sizing: border-box;
 }
 
+body {
+    font-family: 'Montserrat', sans-serif;
+    background-color: #050a0f; /* Azul casi negro */
+    color: #ffffff;
+    min-height: 100vh;
+    overflow-x: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Efecto de Rejilla de Fondo */
 .cyber-grid {
     position: fixed;
-    top: 0; left: 0; width: 100%; height: 100%;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
     background-image: 
         linear-gradient(to right, rgba(0, 255, 170, 0.05) 1px, transparent 1px),
         linear-gradient(to bottom, rgba(0, 255, 170, 0.05) 1px, transparent 1px);
@@ -16,29 +29,94 @@ body {
     z-index: -1;
 }
 
-/* Alineación horizontal de los círculos */
+.wrapper {
+    width: 100%;
+    max-width: 1200px;
+    z-index: 1;
+}
+
+.nav-top {
+    display: flex;
+    justify-content: flex-end;
+    padding: 20px;
+}
+
+.btn-catalogo {
+    border: 1px solid #00ffaa;
+    padding: 10px 20px;
+    color: #00ffaa;
+    text-decoration: none;
+    font-size: 12px;
+    letter-spacing: 2px;
+    background: rgba(0, 255, 170, 0.05);
+    transition: 0.3s;
+}
+
+.btn-catalogo:hover {
+    background: #00ffaa;
+    color: #000;
+    box-shadow: 0 0 15px #00ffaa;
+}
+
+.main-header {
+    text-align: center;
+    margin-bottom: 50px;
+}
+
+.main-header h1 {
+    font-weight: 900;
+    letter-spacing: -1px;
+    color: #00ffaa;
+    text-shadow: 0 0 15px rgba(0, 255, 170, 0.3);
+}
+
+/* --- ESTRUCTURA HORIZONTAL --- */
 .projects-container {
     display: flex;
-    flex-direction: row;
+    flex-direction: row; /* Fuerza horizontal */
+    flex-wrap: nowrap;    /* Prohibe saltar de línea */
     justify-content: center;
     align-items: center;
-    gap: 60px;
-    margin-top: 50px;
+    gap: 80px; 
+    padding: 20px;
+}
+
+.proyecto-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    flex-shrink: 0; /* Evita que los círculos se aplasten */
 }
 
 .circle-box {
     width: 250px;
     height: 250px;
-    border: 6px solid #00ffaa;
+    border: 4px solid #fff;
     border-radius: 50%;
     display: flex;
     justify-content: center;
     align-items: center;
-    background: rgba(0, 255, 170, 0.05);
-    transition: 0.3s;
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(5px);
+    transition: 0.4s;
+    cursor: pointer;
 }
 
 .circle-box:hover {
-    box-shadow: 0 0 20px #00ffaa;
-    background: rgba(0, 255, 170, 0.2);
+    border-color: #00ffaa;
+    transform: translateY(-10px);
+    box-shadow: 0 0 30px rgba(0, 255, 170, 0.4);
+}
+
+.tag {
+    font-size: 10px;
+    letter-spacing: 3px;
+    margin-bottom: 15px;
+    color: #00ffaa;
+}
+
+.footer-text {
+    margin-top: 20px;
+    font-weight: 700;
+    letter-spacing: 1px;
 }
