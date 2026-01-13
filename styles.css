@@ -1,35 +1,56 @@
+/* Contenedor principal en columna para que las filas se apilen */
 .projects-container {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    display: flex;
+    flex-direction: column;
     gap: 20px;
     padding: 20px;
+    max-width: 800px;
+    margin: 0 auto;
 }
 
-.project-card-link {
-    text-decoration: none; /* Quita el subrayado del link */
-    color: inherit;
-    transition: transform 0.3s ease;
+.project-link {
+    text-decoration: none;
+    color: white;
 }
 
-.project-card {
-    background: rgba(0, 20, 40, 0.8);
+.project-card-horizontal {
+    display: flex; /* Alinea logo y texto en horizontal */
+    align-items: center; /* Centra verticalmente el contenido */
+    background: rgba(0, 20, 40, 0.7);
     border: 1px solid #00f2ff;
-    padding: 2rem;
-    position: relative;
-    overflow: hidden;
-    cursor: pointer;
+    padding: 15px 25px;
+    transition: all 0.3s ease;
+    border-left: 5px solid #00f2ff; /* Detalle estético "cyber" */
 }
 
-.project-card:hover {
-    transform: translateY(-5px);
-    background: rgba(0, 40, 80, 0.9);
-    box-shadow: 0 0 20px rgba(0, 242, 255, 0.4);
+.project-card-horizontal:hover {
+    background: rgba(0, 242, 255, 0.1);
+    transform: translateX(10px); /* Efecto de desplazamiento a la derecha */
+    box-shadow: -5px 0 15px rgba(0, 242, 255, 0.3);
 }
 
-.view-more {
-    display: block;
-    margin-top: 15px;
-    font-size: 0.8rem;
+.logo-container {
+    flex-shrink: 0; /* Evita que el logo se aplaste */
+    margin-right: 25px;
+}
+
+.project-logo {
+    width: 80px;
+    height: 80px;
+    border-radius: 5px;
+    object-fit: cover;
+    border: 1px solid rgba(0, 242, 255, 0.5);
+}
+
+.text-container h2 {
+    margin: 0 0 5px 0;
+    font-size: 1.4rem;
     color: #00f2ff;
-    letter-spacing: 2px;
+    text-transform: uppercase;
+}
+
+.text-container p {
+    margin: 0;
+    font-size: 0.95rem;
+    opacity: 0.8;
 }
