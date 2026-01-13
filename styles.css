@@ -178,4 +178,57 @@ body {
 }
 
 
+/* --- AJUSTES PARA DISPOSITIVOS MÓVILES --- */
+@media (max-width: 768px) {
+    /* 1. Ajuste del Index (Las 2 bolas grandes) */
+    .projects-container {
+        flex-direction: column; /* Pone una bola debajo de la otra en móviles */
+        gap: 40px;
+        padding: 20px;
+    }
+
+    .circle-box {
+        width: 220px; /* Reducimos el tamaño para que quepan bien */
+        height: 220px;
+    }
+
+    .main-header h1 {
+        font-size: 1.8rem; /* Título más pequeño para que no se corte */
+    }
+
+    /* 2. Ajuste del Catálogo (Las 30 bolas) */
+    .catalog-grid {
+        grid-template-columns: repeat(auto-fill, minmax(120px, 1fr)); /* Columnas más estrechas */
+        gap: 15px;
+        padding: 20px 10px;
+    }
+
+    .circle-small {
+        width: 100px; /* Bolas más pequeñas en celular */
+        height: 100px;
+        font-size: 0.6rem;
+    }
+
+    /* 3. Ajuste de las páginas de Información (Defensa/Cifrado) */
+    .wrapper {
+        padding: 15px;
+    }
+    
+    article, .info-box {
+        padding: 15px;
+        font-size: 0.9rem; /* Texto más legible en pantallas pequeñas */
+    }
+}
+
+/* --- AJUSTE PARA PANTALLAS MUY PEQUEÑAS (iPhone SE, etc.) --- */
+@media (max-width: 400px) {
+    .circle-box {
+        width: 180px;
+        height: 180px;
+    }
+    
+    .text-side h2 {
+        font-size: 1rem;
+    }
+}
 
