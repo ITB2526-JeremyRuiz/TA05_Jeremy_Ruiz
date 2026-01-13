@@ -1,13 +1,13 @@
 const proyectos = [
     {
         nombre: "DEFENSA",
-        archivo: "proyecto 1",
+        archivo: "defensa.html",
         descripcion: "Análisis de Red",
         logo: "🛡️" // Puedes usar un emoji o ruta de imagen
     },
     {
         nombre: "CIFRADO",
-        archivo: "proyecto 2",
+        archivo: "cifrado.html",
         descripcion: "Protocolos Ssl",
         logo: "🔐"
     }
