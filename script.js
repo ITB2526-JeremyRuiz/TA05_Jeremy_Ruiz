@@ -1,26 +1,25 @@
-async function cargarInicio() {
-    try {
-        const res = await fetch('empresas.json');
-        const datos = await res.json();
-        const container = document.getElementById('contenedor-proyectos');
-        
-        container.innerHTML = ""; // Limpia por si acaso
+fetch('empresas.json')
+    .then(response => response.json())
+    .then(data => {
+        const contenedor = document.getElementById('contenedor-proyectos');
 
-        // Filtramos solo las empresas marcadas como "Top"
-        datos.filter(e => e.tipo === "Top").forEach(e => {
-            container.innerHTML += `
-                <div class="proyecto-item">
-                    <span class="tag">MOST VIEWED</span>
-                    <a href="proyectos.html?id=${e.id}" class="box-link">
-                        <div class="circle-box">
-                            <span class="box-text">${e.nombre}</span>
-                        </div>
-                    </a>
-                    <span class="footer-text">PROYECTO ${e.id}</span>
-                </div>`;
+        data.forEach(item => {
+            const proyecto = document.createElement('div');
+            proyecto.className = 'proyecto-item';
+
+            proyecto.innerHTML = `
+                <span class="tag">${item.tag}</span>
+
+                <a href="${item.link}" class="circle-box">
+                    <span class="box-text">${item.titulo}</span>
+                </a>
+
+                <span class="footer-text">${item.nombre}</span>
+            `;
+
+            contenedor.appendChild(proyecto);
         });
-    } catch (error) {
-        console.error("Error cargando empresas:", error);
-    }
-}
-cargarInicio();
+    })
+    .catch(error => {
+        console.error('Error cargando empresas.json:', error);
+    });
