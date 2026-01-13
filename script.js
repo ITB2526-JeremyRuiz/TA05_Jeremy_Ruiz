@@ -39,3 +39,30 @@ function renderizarProyectos() {
 }
 
 document.addEventListener('DOMContentLoaded', renderizarProyectos);
+
+const conceptos = [
+    "Firewall", "Pentesting", "Malware", "Phishing", "Encryption", 
+    "SIEM", "Zero Trust", "Cloud Security", "IDS/IPS", "VPN",
+    "Social Engineering", "Blockchain", "Ransomware", "Endpoint", "Forensics",
+    "SOC", "Compliance", "Vulnerability", "Dark Web", "Antivirus",
+    "Identity Mgmt", "Network Security", "Ethical Hacking", "Rootkit", "Exploit",
+    "Cryptography", "Botnet", "Data Leak", "Cyber Warfare", "Proxy"
+];
+
+const grid = document.getElementById('grid-empresas');
+
+function cargarCatalogo() {
+    conceptos.forEach((nombre, index) => {
+        const link = document.createElement('a');
+        link.href = "#"; // Aquí podrías poner enlaces reales a futuro
+        link.className = "circle-small";
+        
+        // Añadimos un pequeño retraso en la animación para cada bola (efecto cascada)
+        link.style.animationDelay = `${index * 0.05}s`;
+        
+        link.innerHTML = `<span>${nombre.toUpperCase()}</span>`;
+        grid.appendChild(link);
+    });
+}
+
+document.addEventListener('DOMContentLoaded', cargarCatalogo);
