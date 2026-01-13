@@ -1,44 +1,17 @@
 const proyectos = [
     {
-        nombre: "PROYECTO 1",
-        archivo: "proyecto 1", // Nombre exacto del archivo HTML
-        descripcion: "Sistemas de Defensa",
-        logo: "path/al/logo1.png" // Pon aquí la ruta de tu logo
+        nombre: "DEFENSA",
+        archivo: "proyecto 1",
+        descripcion: "Análisis de Red",
+        logo: "🛡️" // Puedes usar un emoji o ruta de imagen
     },
     {
-        nombre: "PROYECTO 2",
+        nombre: "CIFRADO",
         archivo: "proyecto 2",
-        descripcion: "Cifrado Crítico",
-        logo: "path/al/logo2.png"
+        descripcion: "Protocolos Ssl",
+        logo: "🔐"
     }
 ];
-
-const contenedor = document.getElementById('contenedor-proyectos');
-
-function renderizarProyectos() {
-    proyectos.forEach(proy => {
-        // Creamos el enlace que envuelve todo el ítem
-        const link = document.createElement('a');
-        link.href = proy.archivo;
-        link.style.textDecoration = 'none';
-        link.style.color = 'inherit';
-
-        link.innerHTML = `
-            <div class="proyecto-item">
-                <span class="tag">SEC_LOG_01</span>
-                <div class="circle-box">
-                    <img src="${proy.logo}" alt="Logo" style="width: 60%; height: auto; filter: brightness(0) invert(1);">
-                </div>
-                <p class="footer-text">${proy.nombre}</p>
-                <small style="color: #00ffaa; font-size: 10px; margin-top: 5px;">${proy.descripcion}</small>
-            </div>
-        `;
-        
-        contenedor.appendChild(link);
-    });
-}
-
-document.addEventListener('DOMContentLoaded', renderizarProyectos);
 
 const conceptos = [
     "Firewall", "Pentesting", "Malware", "Phishing", "Encryption", 
@@ -50,22 +23,46 @@ const conceptos = [
 ];
 
 document.addEventListener('DOMContentLoaded', () => {
-    // Buscamos el contenedor del catálogo
+    // --- LÓGICA PARA EL INDEX (2 BOLAS GRANDES) ---
+    // Cambiamos el ID para que coincida con tu HTML
+    const contenedorIndex = document.getElementById('contenedor-proyectos-principales');
+
+    if (contenedorIndex) {
+        contenedorIndex.innerHTML = ""; // Limpia el contenido estático
+        proyectos.forEach(proy => {
+            const link = document.createElement('a');
+            link.href = proy.archivo;
+            link.className = "proyecto-item";
+            link.style.textDecoration = 'none';
+
+            link.innerHTML = `
+                <span class="tag">SEC_LOG_01</span>
+                <div class="circle-box">
+                    <div class="content-horizontal">
+                        <div class="icon">${proy.logo}</div>
+                        <div class="text-side">
+                            <h2>${proy.nombre}</h2>
+                            <p>${proy.descripcion}</p>
+                        </div>
+                    </div>
+                </div>
+            `;
+            contenedorIndex.appendChild(link);
+        });
+    }
+
+    // --- LÓGICA PARA EL CATÁLOGO (30 BOLITAS) ---
     const grid = document.getElementById('grid-empresas');
 
     if (grid) {
-        grid.innerHTML = ""; // Limpiamos contenido previo
+        grid.innerHTML = ""; 
         conceptos.forEach((nombre, index) => {
             const bola = document.createElement('a');
-            bola.href = "#"; // Aquí puedes poner el enlace a cada tema
+            bola.href = "#";
             bola.className = "circle-small";
-            
-            // Efecto de aparición escalonada
             bola.style.animationDelay = `${index * 0.05}s`; 
-            
             bola.innerHTML = `<span>${nombre.toUpperCase()}</span>`;
             grid.appendChild(bola);
         });
     }
 });
-
