@@ -36,7 +36,6 @@ document.addEventListener('DOMContentLoaded', () => {
             link.style.textDecoration = 'none';
 
             link.innerHTML = `
-                <span class="tag"></span>
                 <div class="circle-box">
                     <div class="content-horizontal">
                         <div class="icon">${proy.logo}</div>
