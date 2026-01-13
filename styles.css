@@ -1,56 +1,15 @@
-/* Contenedor principal en columna para que las filas se apilen */
-.projects-container {
+/* Modificación para que el círculo y el texto estén en horizontal */
+.proyecto-item {
+    display: flex;
+    flex-direction: row; /* Cambiado de column a row */
+    align-items: center;
+    gap: 20px; /* Espacio entre el círculo y el texto */
+    flex-shrink: 0;
+}
+
+/* Para que los datos textuales se apilen a la derecha del círculo */
+.info-proyecto {
     display: flex;
     flex-direction: column;
-    gap: 20px;
-    padding: 20px;
-    max-width: 800px;
-    margin: 0 auto;
-}
-
-.project-link {
-    text-decoration: none;
-    color: white;
-}
-
-.project-card-horizontal {
-    display: flex; /* Alinea logo y texto en horizontal */
-    align-items: center; /* Centra verticalmente el contenido */
-    background: rgba(0, 20, 40, 0.7);
-    border: 1px solid #00f2ff;
-    padding: 15px 25px;
-    transition: all 0.3s ease;
-    border-left: 5px solid #00f2ff; /* Detalle estético "cyber" */
-}
-
-.project-card-horizontal:hover {
-    background: rgba(0, 242, 255, 0.1);
-    transform: translateX(10px); /* Efecto de desplazamiento a la derecha */
-    box-shadow: -5px 0 15px rgba(0, 242, 255, 0.3);
-}
-
-.logo-container {
-    flex-shrink: 0; /* Evita que el logo se aplaste */
-    margin-right: 25px;
-}
-
-.project-logo {
-    width: 80px;
-    height: 80px;
-    border-radius: 5px;
-    object-fit: cover;
-    border: 1px solid rgba(0, 242, 255, 0.5);
-}
-
-.text-container h2 {
-    margin: 0 0 5px 0;
-    font-size: 1.4rem;
-    color: #00f2ff;
-    text-transform: uppercase;
-}
-
-.text-container p {
-    margin: 0;
-    font-size: 0.95rem;
-    opacity: 0.8;
+    align-items: flex-start;
 }
